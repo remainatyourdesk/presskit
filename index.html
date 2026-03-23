@@ -504,7 +504,6 @@
     <a href="https://store.steampowered.com/app/4546470/Remain_At_Your_Desk/" target="_blank" class="btn btn-red">WISHLIST ON STEAM &rsaquo;</a>
   </div>
 
-  <div class="ticker">&gt; INITIALIZING ORACLE PROTOCOL... STAND BY_</div>
 </div>
 
 <!-- ABOUT -->
@@ -667,24 +666,6 @@
     if (e.target === this) closeLightbox();
   });
 
-  const tickerEl = document.querySelector('.ticker');
-  const messages = [
-    '> INITIALIZING ORACLE PROTOCOL... STAND BY_',
-    '> EMPLOYEE COMPLIANCE: 99.7% — ACCEPTABLE_',
-    '> PRODUCTIVITY METRICS UPLOADING..._',
-    '> RAYND CORPORATION THANKS YOU FOR YOUR SERVICE_',
-    '> BREACH DETECTED. REMAIN CALM. REMAIN AT YOUR DESK_',
-  ];
-  let i = 0;
-  setInterval(() => {
-    i = (i + 1) % messages.length;
-    tickerEl.style.opacity = 0;
-    setTimeout(() => {
-      tickerEl.textContent = messages[i];
-      tickerEl.style.opacity = 1;
-    }, 400);
-  }, 3500);
-  tickerEl.style.transition = 'opacity 0.4s';
 </script>
 </body>
 </html>
