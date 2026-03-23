@@ -32,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* Scanline overlay */
   body::before {
     content: '';
     position: fixed;
@@ -48,7 +47,6 @@
     z-index: 1000;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -88,7 +86,6 @@
 
   nav ul li a:hover { color: var(--green); }
 
-  /* HERO — compact */
   .hero {
     padding: 80px 40px 40px;
     text-align: center;
@@ -202,7 +199,6 @@
     margin-top: 20px;
   }
 
-  /* SECTIONS */
   section {
     max-width: 1100px;
     margin: 0 auto;
@@ -229,7 +225,6 @@
     text-transform: uppercase;
   }
 
-  /* ABOUT */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -287,9 +282,6 @@
     opacity: 0.6;
   }
 
-  /* CAPSULE ART */
-  .capsule-section { }
-
   .capsule-grid {
     display: grid;
     gap: 20px;
@@ -338,7 +330,6 @@
     gap: 20px;
   }
 
-  /* MEDIA / SCREENSHOTS */
   .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -383,7 +374,6 @@
     flex-wrap: wrap;
   }
 
-  /* TEAM */
   .team-card {
     background: rgba(0,255,65,0.03);
     border: 1px solid rgba(0,255,65,0.12);
@@ -413,7 +403,6 @@
     line-height: 1.7;
   }
 
-  /* CONTACT */
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -447,7 +436,6 @@
     font-size: 13px;
   }
 
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 40px;
@@ -457,7 +445,6 @@
     border-top: 1px solid rgba(0,255,65,0.08);
   }
 
-  /* LIGHTBOX */
   .lightbox {
     display: none;
     position: fixed;
@@ -501,7 +488,6 @@
   </ul>
 </nav>
 
-<!-- HERO — compact -->
 <div class="hero">
   <div class="hero-breadcrumb">&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS</div>
   <h1>REMAIN AT YOUR DESK</h1>
@@ -529,7 +515,7 @@
   <div class="hero-buttons">
     <a href="#contact" class="btn btn-outline">PRESS INQUIRY</a>
     <a href="#capsules" class="btn btn-ghost">VIEW ASSETS</a>
-    <a href="https://store.steampowered.com" target="_blank" class="btn btn-red">WISHLIST ON STEAM &rsaquo;</a>
+    <a href="https://store.steampowered.com/app/4546470/Remain_At_Your_Desk/" target="_blank" class="btn btn-red">WISHLIST ON STEAM &rsaquo;</a>
   </div>
 
   <div class="ticker">&gt; INITIALIZING ORACLE PROTOCOL... STAND BY_</div>
@@ -541,27 +527,26 @@
   <h2>About the Game</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>You are Employee #4471. You have been assigned to your desk. You will remain at your desk. RAYND Corporation thanks you for your compliance.</p>
-      <p><em>Remain at Your Desk</em> is a darkly comedic cyberpunk incremental game set inside the suffocating infrastructure of a megacorporation that may or may not be watching you right now. Automate your way up the ladder, exploit the system, and wonder why the system feels like it's exploiting you back.</p>
-      <p>From processing TPS reports to orchestrating full corporate takeovers — the numbers go up, the bureaucracy multiplies, and productivity is mandatory.</p>
+      <p>You are an employee at RAYND Corporation. Your job is to look like one. By day, click through reports and keep suspicion low. By night, hack company secrets, build your credits, and manage personas. There's something underneath the network. It knows your name.</p>
+      <p>Push too far and suspicion rises — audits, interrogations, termination. But push far enough and you get promoted. More access. Deeper systems. A voice in the terminal that knows your name.</p>
 
       <div class="boilerplate">
         <div class="blabel">Boilerplate</div>
-        <p>Clock in. Comply. Accumulate. <em>Remain at Your Desk</em> is a cyberpunk incremental clicker where corporate satire meets compulsive automation. Work your way through the RAYND Corporation hierarchy — or let the machine do it for you. Your compliance is appreciated.</p>
+        <p><em>Remain at Your Desk</em> is a cyberpunk incremental clicker where corporate drudgery meets illegal hacking. Balance productivity by day with network intrusion by night. 22 upgrades, 6 prestige tiers, 6 switchable personas, and a story buried in classified data fragments. Clock in. Hack out. Remain at your desk.</p>
       </div>
     </div>
 
     <div>
       <ul class="features-list">
-        <li>Dark corporate satire meets incremental game design</li>
-        <li>Automate, delegate, and scale your way up the RAYND hierarchy</li>
-        <li>Offline progression — the corporation runs without you</li>
-        <li>Prestige / restructuring loops for extended replayability</li>
-        <li>Hacking minigame and event-driven narrative moments</li>
-        <li>Original cyberpunk-inflected soundtrack</li>
-        <li>Escalating unlocks: from grunt to architect of the machine</li>
-        <li>Currency hierarchy with meaningful upgrade decisions</li>
-        <li>News ticker flavor text that tells the story of your empire</li>
+        <li>Dual-mode gameplay: corporate productivity by day, illegal hacking by night</li>
+        <li>Deep upgrade tree: 22 upgrades with synergy bonuses, 12 deployable scripts, and 6 prestige tiers</li>
+        <li>Active hacking sequences: route choices, firewall countermeasures, vulnerability windows, and hack streaks</li>
+        <li>Suspicion as a resource: higher risk unlocks rare targets, bonus multipliers, and restricted data</li>
+        <li>Interrogation survival: answer timed questions under corporate scrutiny — your persona determines what gets you fired</li>
+        <li>6 personas: switch identities to evade pattern detection, but use one too long and it burns</li>
+        <li>Script deployment puzzles: solve 13 logic challenges to unlock powerful automations</li>
+        <li>18 night events: encrypted transmissions, security sweeps, and choices with real consequences</li>
+        <li>A story that goes somewhere: 10 classified data fragments. Project LIGHTHOUSE. Floor 13. The ORACLE is watching.</li>
       </ul>
     </div>
   </div>
@@ -573,45 +558,36 @@
   <h2>Capsule Art & Key Images</h2>
 
   <div class="capsule-grid">
-
-    <!-- Main Capsule + Header (wide images) -->
     <div class="capsule-hero-row">
       <div class="capsule-item">
-        <img src="MainCapsule.png" alt="Main Capsule">
-        <div class="cap-label">Main Capsule (460×215)</div>
+        <img src="images/MainCapsule.png" alt="Main Capsule">
+        <div class="cap-label">Main Capsule (460&times;215)</div>
       </div>
       <div class="capsule-item">
-        <img src="Header.png" alt="Header Capsule">
-        <div class="cap-label">Header / Library Capsule (460×215)</div>
+        <img src="images/Header.png" alt="Header Capsule">
+        <div class="cap-label">Header / Library Capsule (460&times;215)</div>
       </div>
     </div>
 
-    <!-- Hero (full width) -->
     <div class="capsule-item">
-      <img src="Hero.png" alt="Hero Art" style="max-height: 340px; width: 100%; object-fit: cover; object-position: center;">
-      <div class="cap-label">Hero Art (1920×620)</div>
+      <img src="images/Hero.png" alt="Hero Art" style="max-height: 340px; width: 100%; object-fit: cover; object-position: center;">
+      <div class="cap-label">Hero Art (1920&times;620)</div>
     </div>
 
-    <!-- Small + Vertical + Library -->
     <div class="capsule-small-row">
       <div class="capsule-item">
-        <img src="LibraryCapsule.png" alt="Library Capsule">
+        <img src="images/LibraryCapsule.png" alt="Library Capsule">
         <div class="cap-label">Library Capsule</div>
       </div>
       <div class="capsule-item">
-        <img src="SmallCapsule.png" alt="Small Capsule">
-        <div class="cap-label">Small Capsule (231×87)</div>
+        <img src="images/SmallCapsule.png" alt="Small Capsule">
+        <div class="cap-label">Small Capsule (231&times;87)</div>
       </div>
       <div class="capsule-item">
-        <img src="Vertical.png" alt="Vertical Capsule">
-        <div class="cap-label">Vertical Capsule (374×448)</div>
+        <img src="images/Vertical.png" alt="Vertical Capsule">
+        <div class="cap-label">Vertical Capsule (374&times;448)</div>
       </div>
     </div>
-
-  </div>
-
-  <div class="download-bar">
-    <a href="#" class="btn btn-outline">DOWNLOAD ALL ASSETS (.ZIP)</a>
   </div>
 </section>
 
@@ -619,10 +595,32 @@
 <section id="media">
   <div class="section-label">&gt; FILE_003</div>
   <h2>Screenshots & Media</h2>
-  <p style="margin-bottom: 20px; font-size: 13px; color: rgba(160,200,160,0.6);">Screenshots available upon request. Press copy and Steam key available for credentialed media.</p>
+
+  <div class="screenshots-grid">
+    <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
+      <img src="images/screenshot_night.png" alt="Night Mode — Hacking Route Choice">
+      <div class="dl-overlay">CLICK TO ENLARGE</div>
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
+      <img src="images/screenshot_day.png" alt="Day Mode — Corporate Tasks">
+      <div class="dl-overlay">CLICK TO ENLARGE</div>
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
+      <img src="images/screenshot_hack.png" alt="Hack In Progress — Breach Detected">
+      <div class="dl-overlay">CLICK TO ENLARGE</div>
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
+      <img src="images/screenshot_oracle.png" alt="ORACLE — I See What You Are">
+      <div class="dl-overlay">CLICK TO ENLARGE</div>
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
+      <img src="images/screenshot_promotion.png" alt="Promotion — Employee Performance Review">
+      <div class="dl-overlay">CLICK TO ENLARGE</div>
+    </div>
+  </div>
+
   <div class="download-bar">
     <a href="#contact" class="btn btn-outline">REQUEST PRESS COPY</a>
-    <a href="#contact" class="btn btn-ghost">REQUEST SCREENSHOTS</a>
   </div>
 </section>
 
@@ -648,7 +646,7 @@
     </div>
     <div class="contact-item">
       <div class="clabel">Steam Page</div>
-      <a href="https://store.steampowered.com" target="_blank">store.steampowered.com</a>
+      <a href="https://store.steampowered.com/app/4546470/Remain_At_Your_Desk/" target="_blank">Remain At Your Desk on Steam</a>
     </div>
     <div class="contact-item">
       <div class="clabel">Studio</div>
@@ -683,7 +681,6 @@
     if (e.target === this) closeLightbox();
   });
 
-  // Ticker animation
   const tickerEl = document.querySelector('.ticker');
   const messages = [
     '> INITIALIZING ORACLE PROTOCOL... STAND BY_',
