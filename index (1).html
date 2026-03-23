@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remain At Your Desk — Press Kit | Crunch Moonkiss Studios</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00ff41;
+    --green-dim: #00cc33;
+    --green-glow: rgba(0,255,65,0.15);
+    --red: #ff2244;
+    --red-dim: #cc1133;
+    --teal: #00e5cc;
+    --bg: #020a04;
+    --bg2: #040f06;
+    --text: #a0c8a0;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Orbitron', monospace;
+    --vt: 'VT323', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Scanline overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(2,10,4,0.92);
+    border-bottom: 1px solid rgba(0,255,65,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 48px;
+  }
+
+  nav .logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav ul li a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav ul li a:hover { color: var(--green); }
+
+  /* HERO — compact */
+  .hero {
+    padding: 80px 40px 40px;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(0,255,65,0.05) 0%, transparent 70%);
+    border-bottom: 1px solid rgba(0,255,65,0.12);
+  }
+
+  .hero-breadcrumb {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(0,255,65,0.5);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: var(--vt);
+    font-size: clamp(56px, 8vw, 96px);
+    color: var(--green);
+    text-shadow: 0 0 30px rgba(0,255,65,0.6), 0 0 60px rgba(0,255,65,0.2);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero .subtitle {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--red);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item { text-align: center; }
+  .meta-item .label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: rgba(160,200,160,0.5);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .meta-item .value {
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+    border: none;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
+  .btn-outline:hover {
+    background: rgba(0,255,65,0.1);
+    box-shadow: 0 0 12px rgba(0,255,65,0.3);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(160,200,160,0.3);
+    color: var(--text);
+  }
+  .btn-ghost:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .btn-red {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: var(--red);
+  }
+  .btn-red:hover {
+    background: rgba(255,34,68,0.1);
+    box-shadow: 0 0 12px rgba(255,34,68,0.3);
+  }
+
+  .ticker {
+    font-size: 11px;
+    color: rgba(0,255,65,0.4);
+    letter-spacing: 0.1em;
+    margin-top: 20px;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    border-bottom: 1px solid rgba(0,255,65,0.08);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+
+  .boilerplate {
+    background: rgba(0,255,65,0.04);
+    border: 1px solid rgba(0,255,65,0.15);
+    border-left: 3px solid var(--green);
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+
+  .boilerplate .blabel {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .boilerplate p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .features-list {
+    list-style: none;
+  }
+
+  .features-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,255,65,0.07);
+    padding-left: 16px;
+    position: relative;
+    font-size: 13px;
+  }
+
+  .features-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    opacity: 0.6;
+  }
+
+  /* CAPSULE ART */
+  .capsule-section { }
+
+  .capsule-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .capsule-hero-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .capsule-item {
+    position: relative;
+    overflow: hidden;
+    background: #010a02;
+    border: 1px solid rgba(0,255,65,0.15);
+  }
+
+  .capsule-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .capsule-item:hover img { transform: scale(1.02); }
+
+  .capsule-item .cap-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(2,10,4,0.85);
+    border-top: 1px solid rgba(0,255,65,0.2);
+    padding: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(0,255,65,0.6);
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .capsule-item:hover .cap-label { opacity: 1; }
+
+  .capsule-small-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* MEDIA / SCREENSHOTS */
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+
+  .screenshot-item {
+    overflow: hidden;
+    border: 1px solid rgba(0,255,65,0.12);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .screenshot-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .screenshot-item:hover img { transform: scale(1.03); }
+
+  .screenshot-item .dl-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,255,65,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--green);
+  }
+
+  .screenshot-item:hover .dl-overlay { opacity: 1; }
+
+  .download-bar {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* TEAM */
+  .team-card {
+    background: rgba(0,255,65,0.03);
+    border: 1px solid rgba(0,255,65,0.12);
+    padding: 24px;
+    max-width: 500px;
+  }
+
+  .team-card .name {
+    font-family: var(--display);
+    font-size: 14px;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .team-card .role {
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .team-card p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .contact-item {
+    background: rgba(0,255,65,0.03);
+    border: 1px solid rgba(0,255,65,0.12);
+    padding: 16px 20px;
+  }
+
+  .contact-item .clabel {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: rgba(0,255,65,0.5);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .contact-item a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .contact-item a:hover { color: var(--green); }
+
+  .contact-item span {
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 11px;
+    color: rgba(160,200,160,0.3);
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(0,255,65,0.08);
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(0,255,65,0.2);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 28px;
+    color: var(--green);
+    cursor: pointer;
+    font-family: var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PRESS KIT</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#capsules">Assets</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO — compact -->
+<div class="hero">
+  <div class="hero-breadcrumb">&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS</div>
+  <h1>REMAIN AT YOUR DESK</h1>
+  <div class="subtitle">Cyberpunk Incremental Clicker</div>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="label">Developer</div>
+      <div class="value">Crunch Moonkiss Studios</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Platform</div>
+      <div class="value">PC (Steam)</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Genre</div>
+      <div class="value">Cyberpunk Incremental Clicker</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Release</div>
+      <div class="value">TBD</div>
+    </div>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="#contact" class="btn btn-outline">PRESS INQUIRY</a>
+    <a href="#capsules" class="btn btn-ghost">VIEW ASSETS</a>
+    <a href="https://store.steampowered.com" target="_blank" class="btn btn-red">WISHLIST ON STEAM &rsaquo;</a>
+  </div>
+
+  <div class="ticker">&gt; INITIALIZING ORACLE PROTOCOL... STAND BY_</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">&gt; FILE_001</div>
+  <h2>About the Game</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>You are Employee #4471. You have been assigned to your desk. You will remain at your desk. RAYND Corporation thanks you for your compliance.</p>
+      <p><em>Remain at Your Desk</em> is a darkly comedic cyberpunk incremental game set inside the suffocating infrastructure of a megacorporation that may or may not be watching you right now. Automate your way up the ladder, exploit the system, and wonder why the system feels like it's exploiting you back.</p>
+      <p>From processing TPS reports to orchestrating full corporate takeovers — the numbers go up, the bureaucracy multiplies, and productivity is mandatory.</p>
+
+      <div class="boilerplate">
+        <div class="blabel">Boilerplate</div>
+        <p>Clock in. Comply. Accumulate. <em>Remain at Your Desk</em> is a cyberpunk incremental clicker where corporate satire meets compulsive automation. Work your way through the RAYND Corporation hierarchy — or let the machine do it for you. Your compliance is appreciated.</p>
+      </div>
+    </div>
+
+    <div>
+      <ul class="features-list">
+        <li>Dark corporate satire meets incremental game design</li>
+        <li>Automate, delegate, and scale your way up the RAYND hierarchy</li>
+        <li>Offline progression — the corporation runs without you</li>
+        <li>Prestige / restructuring loops for extended replayability</li>
+        <li>Hacking minigame and event-driven narrative moments</li>
+        <li>Original cyberpunk-inflected soundtrack</li>
+        <li>Escalating unlocks: from grunt to architect of the machine</li>
+        <li>Currency hierarchy with meaningful upgrade decisions</li>
+        <li>News ticker flavor text that tells the story of your empire</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSULE ART -->
+<section id="capsules">
+  <div class="section-label">&gt; FILE_002</div>
+  <h2>Capsule Art & Key Images</h2>
+
+  <div class="capsule-grid">
+
+    <!-- Main Capsule + Header (wide images) -->
+    <div class="capsule-hero-row">
+      <div class="capsule-item">
+        <img src="MainCapsule.png" alt="Main Capsule">
+        <div class="cap-label">Main Capsule (460×215)</div>
+      </div>
+      <div class="capsule-item">
+        <img src="Header.png" alt="Header Capsule">
+        <div class="cap-label">Header / Library Capsule (460×215)</div>
+      </div>
+    </div>
+
+    <!-- Hero (full width) -->
+    <div class="capsule-item">
+      <img src="Hero.png" alt="Hero Art" style="max-height: 340px; width: 100%; object-fit: cover; object-position: center;">
+      <div class="cap-label">Hero Art (1920×620)</div>
+    </div>
+
+    <!-- Small + Vertical + Library -->
+    <div class="capsule-small-row">
+      <div class="capsule-item">
+        <img src="LibraryCapsule.png" alt="Library Capsule">
+        <div class="cap-label">Library Capsule</div>
+      </div>
+      <div class="capsule-item">
+        <img src="SmallCapsule.png" alt="Small Capsule">
+        <div class="cap-label">Small Capsule (231×87)</div>
+      </div>
+      <div class="capsule-item">
+        <img src="Vertical.png" alt="Vertical Capsule">
+        <div class="cap-label">Vertical Capsule (374×448)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="download-bar">
+    <a href="#" class="btn btn-outline">DOWNLOAD ALL ASSETS (.ZIP)</a>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="section-label">&gt; FILE_003</div>
+  <h2>Screenshots & Media</h2>
+  <p style="margin-bottom: 20px; font-size: 13px; color: rgba(160,200,160,0.6);">Screenshots available upon request. Press copy and Steam key available for credentialed media.</p>
+  <div class="download-bar">
+    <a href="#contact" class="btn btn-outline">REQUEST PRESS COPY</a>
+    <a href="#contact" class="btn btn-ghost">REQUEST SCREENSHOTS</a>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">&gt; FILE_004</div>
+  <h2>Developer</h2>
+  <div class="team-card">
+    <div class="name">Jared Dymbort</div>
+    <div class="role">Solo Developer / Composer — Crunch Moonkiss Studios</div>
+    <p>Jared Dymbort is a NYC-based solo indie developer, award-winning film composer, and Juilliard Extension student. Crunch Moonkiss Studios is the game development arm of Rolling Thunder Works LLC. Previous title: <em>Groove Defense</em> (Steam, 2026) — a music-driven tower defense game where every tower adds a layer to the soundtrack.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">&gt; FILE_005</div>
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="clabel">Press Inquiries</div>
+      <a href="mailto:press@crunchmoonkiss.com">press@crunchmoonkiss.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="clabel">Steam Page</div>
+      <a href="https://store.steampowered.com" target="_blank">store.steampowered.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="clabel">Studio</div>
+      <span>Crunch Moonkiss Studios</span>
+    </div>
+    <div class="contact-item">
+      <div class="clabel">Location</div>
+      <span>New York City, USA</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Crunch Moonkiss Studios / Rolling Thunder Works LLC — All rights reserved<br>
+  <span style="opacity:0.5;">&gt; SESSION TERMINATED_</span>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  // Ticker animation
+  const tickerEl = document.querySelector('.ticker');
+  const messages = [
+    '> INITIALIZING ORACLE PROTOCOL... STAND BY_',
+    '> EMPLOYEE COMPLIANCE: 99.7% — ACCEPTABLE_',
+    '> PRODUCTIVITY METRICS UPLOADING..._',
+    '> RAYND CORPORATION THANKS YOU FOR YOUR SERVICE_',
+    '> BREACH DETECTED. REMAIN CALM. REMAIN AT YOUR DESK_',
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % messages.length;
+    tickerEl.style.opacity = 0;
+    setTimeout(() => {
+      tickerEl.textContent = messages[i];
+      tickerEl.style.opacity = 1;
+    }, 400);
+  }, 3500);
+  tickerEl.style.transition = 'opacity 0.4s';
+</script>
+</body>
+</html>
