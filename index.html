@@ -363,6 +363,54 @@
     flex-wrap: wrap;
   }
 
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .press-item {
+    display: block;
+    background: rgba(0,255,65,0.03);
+    border: 1px solid rgba(0,255,65,0.15);
+    border-left: 3px solid var(--green);
+    padding: 16px 18px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .press-item:hover {
+    background: rgba(0,255,65,0.07);
+    border-color: var(--teal);
+    box-shadow: 0 0 12px rgba(0,255,65,0.15);
+  }
+
+  .press-item .press-outlet {
+    font-family: var(--display);
+    font-size: 13px;
+    color: var(--green);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .press-item .press-meta {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(160,200,160,0.7);
+    text-transform: uppercase;
+  }
+
+  .press-item .press-arrow {
+    float: right;
+    color: var(--teal);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+  }
+
+  .press-item:hover .press-arrow { opacity: 1; }
+
   .team-card {
     background: rgba(0,255,65,0.03);
     border: 1px solid rgba(0,255,65,0.12);
@@ -472,6 +520,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#capsules">Assets</a></li>
     <li><a href="#media">Media</a></li>
+    <li><a href="#press">Press</a></li>
     <li><a href="#team">Developer</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -644,9 +693,37 @@
   </div>
 </section>
 
+<!-- PRESS -->
+<section id="press">
+  <div class="section-label">&gt; FILE_004</div>
+  <h2>Featured In</h2>
+  <div class="press-grid">
+    <a href="https://gnn.gamer.com.tw/detail.php?sn=303084" target="_blank" rel="noopener" class="press-item">
+      <span class="press-arrow">&rsaquo;</span>
+      <div class="press-outlet">Bahamut GNN</div>
+      <div class="press-meta">Taiwan &middot; Gaming News</div>
+    </a>
+    <a href="https://gamebiz.jp/news/424779" target="_blank" rel="noopener" class="press-item">
+      <span class="press-arrow">&rsaquo;</span>
+      <div class="press-outlet">Gamebiz.jp</div>
+      <div class="press-meta">Japan &middot; Industry Trade</div>
+    </a>
+    <a href="https://indiegame.com/en/archives/25464" target="_blank" rel="noopener" class="press-item">
+      <span class="press-arrow">&rsaquo;</span>
+      <div class="press-outlet">IndieGame.com</div>
+      <div class="press-meta">Korea &middot; Indie Coverage</div>
+    </a>
+    <a href="https://playday.one/2026/04/19/the-dayone-show-episode-310/" target="_blank" rel="noopener" class="press-item">
+      <span class="press-arrow">&rsaquo;</span>
+      <div class="press-outlet">The DayOne Show</div>
+      <div class="press-meta">Podcast &middot; Episode 310</div>
+    </a>
+  </div>
+</section>
+
 <!-- TEAM -->
 <section id="team">
-  <div class="section-label">&gt; FILE_004</div>
+  <div class="section-label">&gt; FILE_005</div>
   <h2>Developer</h2>
   <div class="team-card">
     <div class="name">Jared D.</div>
@@ -657,7 +734,7 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">&gt; FILE_005</div>
+  <div class="section-label">&gt; FILE_006</div>
   <h2>Contact</h2>
   <div class="contact-grid">
     <div class="contact-item">
