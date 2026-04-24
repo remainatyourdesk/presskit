@@ -269,6 +269,40 @@
     opacity: 0.6;
   }
 
+  .about-text .lede {
+    font-family: var(--display);
+    font-size: 26px;
+    color: var(--green);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .feature-block {
+    border-left: 2px solid var(--green);
+    padding: 12px 16px 14px;
+    margin-bottom: 18px;
+    background: rgba(0,255,65,0.03);
+  }
+
+  .feature-block .feature-head {
+    font-family: var(--display);
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .feature-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+  }
+
   .capsule-grid {
     display: grid;
     gap: 20px;
@@ -564,48 +598,44 @@
   <h2>About the Game</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>Click through your day job to earn credits and look productive. At night, break into your company's network: route through systems, crack firewalls, and steal data. Push too far and suspicion fills &mdash; audits, interrogations, or get fired. Play it safe and you'll fall behind.</p>
+      <p class="lede">You have two jobs.</p>
 
-      <p>You are Employee #&#9608;&#9608;&#9608;&#9608; at <strong style="color:var(--green);">RAYND CORPORATION</strong>. Your terminal is running. Your job is simple: complete tasks, earn credits, stay productive. Your terminal is monitored.</p>
+      <p>The first is fake. You click through tasks, file reports, sync databases, and collect a paycheck. Nobody knows what you actually do. That's the point. You just need to look busy enough to get promoted.</p>
 
-      <p>But when the lights go down, you flip the switch.</p>
+      <p>The second job is the real one. After hours, you break into the corporate network, route through systems, crack firewalls, and pull data that isn't yours. Some of it is worth money. Some of it is worth more than money.</p>
 
       <blockquote style="border-left: 3px solid var(--teal); padding: 14px 20px; margin: 22px 0; background: rgba(0,229,204,0.04); color: var(--teal); font-style: italic; font-size: 15px; line-height: 1.6;">
         &ldquo;A clever cyberpunk take on idle games where your day job hides something much deeper.&rdquo;
         <div style="font-size: 11px; color: rgba(160,200,160,0.7); letter-spacing: 0.2em; margin-top: 10px; font-style: normal; text-transform: uppercase;">&mdash; IndieGame.com</div>
       </blockquote>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0;">
-        <div style="border: 1px solid rgba(0,255,65,0.25); padding: 14px 16px; background: rgba(0,255,65,0.03);">
-          <div style="font-size: 10px; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; margin-bottom: 8px;">&gt; By Day</div>
-          <p style="font-size: 13px; margin: 0; line-height: 1.6;">File reports. Sync databases. Complete tasks. Automate your workload. Get promoted.</p>
-        </div>
-        <div style="border: 1px solid rgba(255,34,68,0.3); padding: 14px 16px; background: rgba(255,34,68,0.03);">
-          <div style="font-size: 10px; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 8px;">&gt; By Night</div>
-          <p style="font-size: 13px; margin: 0; line-height: 1.6;">Hack the corporate network. Route through nodes, exploit vulnerabilities, and extract data.</p>
-        </div>
-      </div>
-
-      <p><strong style="color: var(--red);">Suspicion is always rising.</strong> Push too far and you trigger audits, interrogations, termination. Stay under the radar long enough and you unlock promotions, deeper access, and more powerful targets.</p>
-
       <div class="boilerplate">
         <div class="blabel">Boilerplate</div>
-        <p><em>Remain at Your Desk</em> is a cyberpunk incremental clicker where you balance corporate productivity by day with illegal hacking by night. Grind credits at your desk, extract intel after dark, manage suspicion, survive interrogations, and switch personas to stay off the grid. Twin economies, an active hacking layer, and a terminal that's watching. Clock in. Hack out. Remain at your desk.</p>
+        <p><em>Remain at Your Desk</em> is a cyberpunk incremental clicker with two jobs. By day you click tasks and get promoted. By night you hack the corporate network, manage suspicion, switch personas, and pull data that isn't yours. Get caught and start over with nothing.</p>
       </div>
     </div>
 
     <div>
-      <ul class="features-list">
-        <li><strong style="color:var(--green);">Incremental progression</strong> &mdash; automate your job, stack upgrades, and climb corporate ranks.</li>
-        <li><strong style="color:var(--green);">Twin economies</strong> &mdash; grind credits by day, extract intel by night. Each drives a separate upgrade tree with its own strategic depth.</li>
-        <li><strong style="color:var(--green);">Leverage</strong> &mdash; every hack pulls dirt worth keeping. Leak it for credits, or archive it to complete dossiers that stay with you through prestige.</li>
-        <li><strong style="color:var(--green);">Active hacking sequences</strong> &mdash; route through systems, break firewalls, and exploit timing windows.</li>
-        <li><strong style="color:var(--green);">Suspicion as a resource</strong> &mdash; higher risk unlocks better rewards, but getting caught resets everything.</li>
-        <li><strong style="color:var(--green);">Interrogations</strong> &mdash; answer under pressure or lose everything.</li>
-        <li><strong style="color:var(--green);">Personas</strong> &mdash; switch identities to avoid detection, but overuse burns them.</li>
-        <li><strong style="color:var(--green);">Events</strong> &mdash; security sweeps, encrypted transmissions, and decisions with real consequences.</li>
-        <li><strong style="color:var(--green);">A hidden system</strong> &mdash; something in the terminal is watching.</li>
-      </ul>
+      <div class="feature-block">
+        <div class="feature-head">Risk</div>
+        <p>Every hack raises suspicion. Push too far and security starts paying attention. An audit lands on your desk and then an interrogation follows. If your story doesn't hold, you're back to Intern with nothing.</p>
+      </div>
+      <div class="feature-block">
+        <div class="feature-head">Two Economies</div>
+        <p>Credits come from the day job. They buy upgrades, automation, and time. Intel comes from hacks. It is rarer, riskier, and feeds a separate set of tools that make your night runs faster and more dangerous. You can sell intel for fast credits, or hold it for bigger payoffs later.</p>
+      </div>
+      <div class="feature-block">
+        <div class="feature-head">Cover</div>
+        <p>Personas let you hack as someone else. The janitor, the IT admin, the consultant nobody questions. Each one has its own bonuses but each one burns out if you rely on it too much. Cover actions such as fake reports, wiped logs, and bribes bring suspicion back down.</p>
+      </div>
+      <div class="feature-block">
+        <div class="feature-head">Leverage</div>
+        <p>Not everything is worth selling. Hack the same target enough times and you build a dossier. This creates permanent leverage that survives resets. The email server shows you who hates who. The security network shows you where the cameras are not. Executive files show you how the system really works.</p>
+      </div>
+      <div class="feature-block">
+        <div class="feature-head">Prestige</div>
+        <p>Get promoted and you start over with better tools, new personas, and stronger multipliers. Get caught and you start over with nothing.</p>
+      </div>
     </div>
   </div>
 </section>
