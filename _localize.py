@@ -169,14 +169,6 @@ STRINGS = {
         'pt-BR': '<p>O segundo emprego é o real. Depois do expediente, você invade a rede corporativa para extrair dados que não são seus. Você roteia por sistemas, quebra firewalls e fica à frente de quem está prestando atenção.</p>',
         'ru':    '<p>Вторая работа — настоящая. После рабочего дня ты взламываешь корпоративную сеть, чтобы вытащить данные, которые тебе не принадлежат. Ты прокладываешь маршруты через системы, ломаешь фаерволы и остаёшься на шаг впереди тех, кто наблюдает.</p>',
     },
-    '&ldquo;A clever cyberpunk take on idle games where your day job hides something much deeper.&rdquo;': {
-        'de':    '&bdquo;Ein cleverer Cyberpunk-Take auf Idle-Games, bei dem dein Tagesjob etwas viel Tieferes verbirgt.&ldquo;',
-        'ja':    '&ldquo;日中の仕事がもっと深い何かを隠している、巧妙なサイバーパンク・アイドルゲーム。&rdquo;',
-        'zh-CN': '&ldquo;一款巧妙的赛博朋克放置游戏,你的日常工作背后藏着更深的秘密。&rdquo;',
-        'zh-TW': '&ldquo;一款巧妙的賽博龐克放置遊戲,你的日常工作背後藏著更深的秘密。&rdquo;',
-        'pt-BR': '&ldquo;Uma releitura cyberpunk inteligente de jogos idle onde seu trabalho diurno esconde algo muito mais profundo.&rdquo;',
-        'ru':    '&laquo;Умный киберпанк-взгляд на idle-игры, где твоя дневная работа скрывает нечто гораздо более глубокое.&raquo;',
-    },
     '<div class="blabel">Boilerplate</div>': {
         'de': '<div class="blabel">Boilerplate</div>', 'ja': '<div class="blabel">定型文</div>',
         'zh-CN': '<div class="blabel">官方简介</div>', 'zh-TW': '<div class="blabel">官方簡介</div>',
