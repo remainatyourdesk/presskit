@@ -7,7 +7,7 @@ supported language with translated copy. Run from the press-kit repo root:
 """
 import re, os, sys
 
-LANGS = ['de', 'ja', 'zh-CN', 'zh-TW', 'pt-BR', 'ru']
+LANGS = ['de', 'ja', 'zh-CN', 'zh-TW', 'pt-BR', 'ru', 'ko', 'es-MX', 'es-ES', 'fr-FR']
 
 # Native-language label for the language picker
 LANG_LABELS = {
@@ -18,6 +18,10 @@ LANG_LABELS = {
     'zh-TW': '繁中',
     'pt-BR': 'PT-BR',
     'ru':    'RU',
+    'ko':    '한국어',
+    'es-MX':    'ES-MX',
+    'es-ES':    'ES-ES',
+    'fr-FR':    'FR',
 }
 
 # All translatable strings. Keys map to en→target by direct substring replacement.
@@ -31,7 +35,11 @@ STRINGS = {
         'zh-TW': 'Remain At Your Desk — 媒體資源包 | Crunch Moonkiss Studios',
         'pt-BR': 'Remain At Your Desk — Press Kit | Crunch Moonkiss Studios',
         'ru':    'Remain At Your Desk — Пресс-кит | Crunch Moonkiss Studios',
-    },
+        'ko': 'Remain At Your Desk — 프레스 킷 | Crunch Moonkiss Studios',
+        'es-MX': 'Remain At Your Desk — Press Kit | Crunch Moonkiss Studios',
+        'es-ES': 'Remain At Your Desk — Press Kit | Crunch Moonkiss Studios',
+        'fr-FR': 'Remain At Your Desk — Dossier de Presse | Crunch Moonkiss Studios',
+},
 
     # ─── Nav ───
     '<div class="logo">PRESS KIT</div>': {
@@ -41,37 +49,65 @@ STRINGS = {
         'zh-TW': '<div class="logo">媒體資源包</div>',
         'pt-BR': '<div class="logo">PRESS KIT</div>',
         'ru':    '<div class="logo">ПРЕСС-КИТ</div>',
-    },
+        'ko': '<div class="logo">프레스 킷</div>',
+        'es-MX': '<div class="logo">PRESS KIT</div>',
+        'es-ES': '<div class="logo">PRESS KIT</div>',
+        'fr-FR': '<div class="logo">DOSSIER DE PRESSE</div>',
+},
     '<a href="#about">About</a>': {
         'de': '<a href="#about">Über</a>', 'ja': '<a href="#about">概要</a>',
         'zh-CN': '<a href="#about">关于</a>', 'zh-TW': '<a href="#about">關於</a>',
         'pt-BR': '<a href="#about">Sobre</a>', 'ru': '<a href="#about">Описание</a>',
-    },
+        'ko': '<a href="#about">소개</a>',
+        'es-MX': '<a href="#about">Acerca de</a>',
+        'es-ES': '<a href="#about">Acerca de</a>',
+        'fr-FR': '<a href="#about">À propos</a>',
+},
     '<a href="#capsules">Assets</a>': {
         'de': '<a href="#capsules">Assets</a>', 'ja': '<a href="#capsules">素材</a>',
         'zh-CN': '<a href="#capsules">素材</a>', 'zh-TW': '<a href="#capsules">素材</a>',
         'pt-BR': '<a href="#capsules">Recursos</a>', 'ru': '<a href="#capsules">Материалы</a>',
-    },
+        'ko': '<a href="#capsules">에셋</a>',
+        'es-MX': '<a href="#capsules">Recursos</a>',
+        'es-ES': '<a href="#capsules">Recursos</a>',
+        'fr-FR': '<a href="#capsules">Ressources</a>',
+},
     '<a href="#media">Media</a>': {
         'de': '<a href="#media">Medien</a>', 'ja': '<a href="#media">メディア</a>',
         'zh-CN': '<a href="#media">媒体</a>', 'zh-TW': '<a href="#media">媒體</a>',
         'pt-BR': '<a href="#media">Mídia</a>', 'ru': '<a href="#media">Медиа</a>',
-    },
+        'ko': '<a href="#media">미디어</a>',
+        'es-MX': '<a href="#media">Medios</a>',
+        'es-ES': '<a href="#media">Medios</a>',
+        'fr-FR': '<a href="#media">Médias</a>',
+},
     '<a href="#press">Press</a>': {
         'de': '<a href="#press">Presse</a>', 'ja': '<a href="#press">掲載情報</a>',
         'zh-CN': '<a href="#press">报道</a>', 'zh-TW': '<a href="#press">報導</a>',
         'pt-BR': '<a href="#press">Imprensa</a>', 'ru': '<a href="#press">Пресса</a>',
-    },
+        'ko': '<a href="#press">언론</a>',
+        'es-MX': '<a href="#press">Prensa</a>',
+        'es-ES': '<a href="#press">Prensa</a>',
+        'fr-FR': '<a href="#press">Presse</a>',
+},
     '<a href="#team">Developer</a>': {
         'de': '<a href="#team">Entwickler</a>', 'ja': '<a href="#team">開発者</a>',
         'zh-CN': '<a href="#team">开发者</a>', 'zh-TW': '<a href="#team">開發者</a>',
         'pt-BR': '<a href="#team">Desenvolvedor</a>', 'ru': '<a href="#team">Разработчик</a>',
-    },
+        'ko': '<a href="#team">개발자</a>',
+        'es-MX': '<a href="#team">Desarrollador</a>',
+        'es-ES': '<a href="#team">Desarrollador</a>',
+        'fr-FR': '<a href="#team">Développeur</a>',
+},
     '<a href="#contact">Contact</a>': {
         'de': '<a href="#contact">Kontakt</a>', 'ja': '<a href="#contact">連絡先</a>',
         'zh-CN': '<a href="#contact">联系</a>', 'zh-TW': '<a href="#contact">聯絡</a>',
         'pt-BR': '<a href="#contact">Contato</a>', 'ru': '<a href="#contact">Контакты</a>',
-    },
+        'ko': '<a href="#contact">연락처</a>',
+        'es-MX': '<a href="#contact">Contacto</a>',
+        'es-ES': '<a href="#contact">Contacto</a>',
+        'fr-FR': '<a href="#contact">Contact</a>',
+},
 
     # ─── Hero ───
     '&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS': {
@@ -81,7 +117,11 @@ STRINGS = {
         'zh-TW': '&gt; 媒體資源包 — CRUNCH MOONKISS STUDIOS',
         'pt-BR': '&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS',
         'ru':    '&gt; ПРЕСС-КИТ — CRUNCH MOONKISS STUDIOS',
-    },
+        'ko': '&gt; 프레스 킷 — CRUNCH MOONKISS STUDIOS',
+        'es-MX': '&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS',
+        'es-ES': '&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS',
+        'fr-FR': '&gt; DOSSIER DE PRESSE — CRUNCH MOONKISS STUDIOS',
+},
     '<div class="subtitle">Cyberpunk Incremental Clicker</div>': {
         'de':    '<div class="subtitle">Cyberpunk Incremental Clicker</div>',
         'ja':    '<div class="subtitle">サイバーパンク・インクリメンタル・クリッカー</div>',
@@ -89,27 +129,47 @@ STRINGS = {
         'zh-TW': '<div class="subtitle">賽博龐克放置點擊</div>',
         'pt-BR': '<div class="subtitle">Clicker Incremental Cyberpunk</div>',
         'ru':    '<div class="subtitle">Киберпанк-кликер с прогрессией</div>',
-    },
+        'ko': '<div class="subtitle">사이버펑크 인크리멘탈 클리커</div>',
+        'es-MX': '<div class="subtitle">Clicker Incremental Cyberpunk</div>',
+        'es-ES': '<div class="subtitle">Clicker Incremental Cyberpunk</div>',
+        'fr-FR': '<div class="subtitle">Clicker Incrémental Cyberpunk</div>',
+},
     '<div class="label">Developer</div>': {
         'de': '<div class="label">Entwickler</div>', 'ja': '<div class="label">開発者</div>',
         'zh-CN': '<div class="label">开发者</div>', 'zh-TW': '<div class="label">開發者</div>',
         'pt-BR': '<div class="label">Desenvolvedor</div>', 'ru': '<div class="label">Разработчик</div>',
-    },
+        'ko': '<div class="label">개발자</div>',
+        'es-MX': '<div class="label">Desarrollador</div>',
+        'es-ES': '<div class="label">Desarrollador</div>',
+        'fr-FR': '<div class="label">Développeur</div>',
+},
     '<div class="label">Platform</div>': {
         'de': '<div class="label">Plattform</div>', 'ja': '<div class="label">プラットフォーム</div>',
         'zh-CN': '<div class="label">平台</div>', 'zh-TW': '<div class="label">平台</div>',
         'pt-BR': '<div class="label">Plataforma</div>', 'ru': '<div class="label">Платформа</div>',
-    },
+        'ko': '<div class="label">플랫폼</div>',
+        'es-MX': '<div class="label">Plataforma</div>',
+        'es-ES': '<div class="label">Plataforma</div>',
+        'fr-FR': '<div class="label">Plateforme</div>',
+},
     '<div class="label">Genre</div>': {
         'de': '<div class="label">Genre</div>', 'ja': '<div class="label">ジャンル</div>',
         'zh-CN': '<div class="label">类型</div>', 'zh-TW': '<div class="label">類型</div>',
         'pt-BR': '<div class="label">Gênero</div>', 'ru': '<div class="label">Жанр</div>',
-    },
+        'ko': '<div class="label">장르</div>',
+        'es-MX': '<div class="label">Género</div>',
+        'es-ES': '<div class="label">Género</div>',
+        'fr-FR': '<div class="label">Genre</div>',
+},
     '<div class="label">Release</div>': {
         'de': '<div class="label">Release</div>', 'ja': '<div class="label">リリース</div>',
         'zh-CN': '<div class="label">发布</div>', 'zh-TW': '<div class="label">發行</div>',
         'pt-BR': '<div class="label">Lançamento</div>', 'ru': '<div class="label">Выход</div>',
-    },
+        'ko': '<div class="label">출시</div>',
+        'es-MX': '<div class="label">Lanzamiento</div>',
+        'es-ES': '<div class="label">Lanzamiento</div>',
+        'fr-FR': '<div class="label">Sortie</div>',
+},
     '<div class="value">Cyberpunk Incremental Clicker</div>': {
         'de':    '<div class="value">Cyberpunk Incremental Clicker</div>',
         'ja':    '<div class="value">サイバーパンク・インクリメンタル・クリッカー</div>',
@@ -117,34 +177,58 @@ STRINGS = {
         'zh-TW': '<div class="value">賽博龐克放置點擊</div>',
         'pt-BR': '<div class="value">Clicker Incremental Cyberpunk</div>',
         'ru':    '<div class="value">Киберпанк-кликер</div>',
-    },
+        'ko': '<div class="value">사이버펑크 인크리멘탈 클리커</div>',
+        'es-MX': '<div class="value">Clicker Incremental Cyberpunk</div>',
+        'es-ES': '<div class="value">Clicker Incremental Cyberpunk</div>',
+        'fr-FR': '<div class="value">Clicker Incrémental Cyberpunk</div>',
+},
     '<div class="value">Late 2026</div>': {
         'de': '<div class="value">Ende 2026</div>', 'ja': '<div class="value">2026年後半</div>',
         'zh-CN': '<div class="value">2026 年末</div>', 'zh-TW': '<div class="value">2026 年末</div>',
         'pt-BR': '<div class="value">Final de 2026</div>', 'ru': '<div class="value">Конец 2026</div>',
-    },
+        'ko': '<div class="value">2026년 후반</div>',
+        'es-MX': '<div class="value">Finales de 2026</div>',
+        'es-ES': '<div class="value">Finales de 2026</div>',
+        'fr-FR': '<div class="value">Fin 2026</div>',
+},
     'WATCH TRAILER &rsaquo;': {
         'de': 'TRAILER ANSEHEN &rsaquo;', 'ja': 'トレーラー再生 &rsaquo;',
         'zh-CN': '观看预告片 &rsaquo;', 'zh-TW': '觀看預告片 &rsaquo;',
         'pt-BR': 'VER TRAILER &rsaquo;', 'ru': 'СМОТРЕТЬ ТРЕЙЛЕР &rsaquo;',
-    },
+        'ko': '트레일러 보기 &rsaquo;',
+        'es-MX': 'VER TRÁILER &rsaquo;',
+        'es-ES': 'VER TRÁILER &rsaquo;',
+        'fr-FR': 'VOIR LA BANDE-ANNONCE &rsaquo;',
+},
     'VIEW ASSETS': {
         'de': 'ASSETS ANSEHEN', 'ja': '素材を見る',
         'zh-CN': '查看素材', 'zh-TW': '查看素材',
         'pt-BR': 'VER RECURSOS', 'ru': 'СМОТРЕТЬ МАТЕРИАЛЫ',
-    },
+        'ko': '에셋 보기',
+        'es-MX': 'VER RECURSOS',
+        'es-ES': 'VER RECURSOS',
+        'fr-FR': 'VOIR LES RESSOURCES',
+},
     'WISHLIST ON STEAM &rsaquo;': {
         'de': 'AUF STEAM AUF WUNSCHLISTE &rsaquo;', 'ja': 'STEAMでウィッシュリストに追加 &rsaquo;',
         'zh-CN': '在 STEAM 加入愿望单 &rsaquo;', 'zh-TW': '在 STEAM 加入願望清單 &rsaquo;',
         'pt-BR': 'LISTA DE DESEJOS NO STEAM &rsaquo;', 'ru': 'В СПИСОК ЖЕЛАЕМОГО STEAM &rsaquo;',
-    },
+        'ko': 'STEAM에서 위시리스트 추가 &rsaquo;',
+        'es-MX': 'AGREGAR A LISTA DE DESEOS EN STEAM &rsaquo;',
+        'es-ES': 'AÑADIR A LISTA DE DESEOS EN STEAM &rsaquo;',
+        'fr-FR': 'AJOUTER À LA LISTE DE SOUHAITS STEAM &rsaquo;',
+},
 
     # ─── About ───
     '<h2>About the Game</h2>': {
         'de': '<h2>Über das Spiel</h2>', 'ja': '<h2>ゲーム概要</h2>',
         'zh-CN': '<h2>游戏简介</h2>', 'zh-TW': '<h2>遊戲簡介</h2>',
         'pt-BR': '<h2>Sobre o Jogo</h2>', 'ru': '<h2>Об игре</h2>',
-    },
+        'ko': '<h2>게임 소개</h2>',
+        'es-MX': '<h2>Acerca del Juego</h2>',
+        'es-ES': '<h2>Acerca del Juego</h2>',
+        'fr-FR': '<h2>À propos du jeu</h2>',
+},
     '<p class="lede">You have two jobs.</p>': {
         'de':    '<p class="lede">Du hast zwei Jobs.</p>',
         'ja':    '<p class="lede">あなたには二つの仕事がある。</p>',
@@ -152,7 +236,11 @@ STRINGS = {
         'zh-TW': '<p class="lede">你有兩份工作。</p>',
         'pt-BR': '<p class="lede">Você tem dois empregos.</p>',
         'ru':    '<p class="lede">У тебя две работы.</p>',
-    },
+        'ko': '<p class="lede">당신에게는 두 개의 직업이 있다.</p>',
+        'es-MX': '<p class="lede">Tienes dos trabajos.</p>',
+        'es-ES': '<p class="lede">Tienes dos trabajos.</p>',
+        'fr-FR': '<p class="lede">Tu as deux boulots.</p>',
+},
     '<p>The first is fake. You click through tasks, file reports, sync databases, and collect a paycheck. Nobody knows what you actually do. You just need to look busy enough to get promoted.</p>': {
         'de':    '<p>Der erste ist fake. Du klickst dich durch Aufgaben, reichst Berichte ein, synchronisierst Datenbanken und kassierst dein Gehalt. Niemand weiß, was du wirklich tust. Du musst nur beschäftigt genug aussehen, um befördert zu werden.</p>',
         'ja':    '<p>一つ目はフェイクだ。タスクをクリックし、レポートを提出し、データベースを同期し、給料を受け取る。本当は何をしているのか誰も知らない。昇進できるくらい忙しそうに見えればいい。</p>',
@@ -160,7 +248,11 @@ STRINGS = {
         'zh-TW': '<p>第一份是假的。你點擊任務、提交報告、同步資料庫,然後領薪水。沒人知道你到底在做什麼。你只需要看起來忙到能被提拔就行。</p>',
         'pt-BR': '<p>O primeiro é falso. Você clica em tarefas, arquiva relatórios, sincroniza bancos de dados e recebe um salário. Ninguém sabe o que você realmente faz. Você só precisa parecer ocupado o suficiente para ser promovido.</p>',
         'ru':    '<p>Первая — фальшивая. Ты кликаешь по задачам, сдаёшь отчёты, синхронизируешь базы данных и получаешь зарплату. Никто не знает, чем ты на самом деле занят. Тебе нужно лишь выглядеть достаточно занятым, чтобы получить повышение.</p>',
-    },
+        'ko': '<p>첫 번째는 가짜다. 당신은 업무를 클릭하고, 보고서를 제출하고, 데이터베이스를 동기화하고, 월급을 받는다. 당신이 실제로 무엇을 하는지 아무도 모른다. 승진할 만큼 바빠 보이기만 하면 된다.</p>',
+        'es-MX': '<p>El primero es falso. Haces clic en tareas, presentas reportes, sincronizas bases de datos y cobras el sueldo. Nadie sabe lo que realmente haces. Solo tienes que verte lo suficientemente ocupado como para que te asciendan.</p>',
+        'es-ES': '<p>El primero es falso. Haces clic en tareas, presentas informes, sincronizas bases de datos y cobras la nómina. Nadie sabe lo que realmente haces. Solo tienes que parecer lo suficientemente ocupado como para que te asciendan.</p>',
+        'fr-FR': "<p>Le premier est bidon. Tu cliques sur des tâches, tu déposes des rapports, tu synchronises des bases de données, et tu touches ton salaire. Personne ne sait ce que tu fais vraiment. Tu dois juste avoir l'air assez occupé pour être promu.</p>",
+},
     '<p>The second job is the real one. After hours, you break into the corporate network to pull data that isn\'t yours. You route through systems, crack firewalls, stay ahead of whoever\'s paying attention.</p>': {
         'de':    '<p>Der zweite Job ist der echte. Nach Feierabend dringst du ins Firmennetzwerk ein, um Daten zu holen, die dir nicht gehören. Du routest durch Systeme, knackst Firewalls und bleibst denen voraus, die aufpassen.</p>',
         'ja':    '<p>二つ目の仕事こそが本物だ。退勤後、企業ネットワークに侵入し、自分のものではないデータを抜き取る。システムを経由し、ファイアウォールを破り、見張る者の一歩先を行く。</p>',
@@ -168,12 +260,20 @@ STRINGS = {
         'zh-TW': '<p>第二份工作才是真正的。下班後,你闖入公司網路,提取不屬於你的資料。你穿越系統、破解防火牆,始終領先那些注意你的人一步。</p>',
         'pt-BR': '<p>O segundo emprego é o real. Depois do expediente, você invade a rede corporativa para extrair dados que não são seus. Você roteia por sistemas, quebra firewalls e fica à frente de quem está prestando atenção.</p>',
         'ru':    '<p>Вторая работа — настоящая. После рабочего дня ты взламываешь корпоративную сеть, чтобы вытащить данные, которые тебе не принадлежат. Ты прокладываешь маршруты через системы, ломаешь фаерволы и остаёшься на шаг впереди тех, кто наблюдает.</p>',
-    },
+        'ko': '<p>두 번째 직업이 진짜다. 퇴근 후, 당신은 기업 네트워크에 침입하여 자기 것이 아닌 데이터를 빼낸다. 시스템을 경유하고, 방화벽을 뚫고, 주시하는 자보다 한발 앞선다.</p>',
+        'es-MX': '<p>El segundo trabajo es el real. Después de horas, te metes en la red corporativa para extraer datos que no son tuyos. Te ruteas por sistemas, descifras firewalls, y te mantienes un paso adelante de quien esté prestando atención.</p>',
+        'es-ES': '<p>El segundo trabajo es el real. Fuera de horario, te cuelas en la red corporativa para sacar datos que no son tuyos. Te enrutas por sistemas, rompes firewalls, te mantienes por delante de quien esté prestando atención.</p>',
+        'fr-FR': "<p>Le second boulot est le vrai. Après les heures, tu pénètres dans le réseau de l'entreprise pour extraire des données qui ne t'appartiennent pas. Tu passes par les systèmes, tu craques les pare-feu, tu gardes une longueur d'avance sur ceux qui surveillent.</p>",
+},
     '<div class="blabel">Boilerplate</div>': {
         'de': '<div class="blabel">Boilerplate</div>', 'ja': '<div class="blabel">定型文</div>',
         'zh-CN': '<div class="blabel">官方简介</div>', 'zh-TW': '<div class="blabel">官方簡介</div>',
         'pt-BR': '<div class="blabel">Texto padrão</div>', 'ru': '<div class="blabel">Описание</div>',
-    },
+        'ko': '<div class="blabel">공식 소개</div>',
+        'es-MX': '<div class="blabel">Texto base</div>',
+        'es-ES': '<div class="blabel">Texto base</div>',
+        'fr-FR': '<div class="blabel">Texte officiel</div>',
+},
     '<p><em>Remain at Your Desk</em> is a cyberpunk incremental clicker with two jobs. By day you click tasks and get promoted. By night you hack the corporate network, manage suspicion, switch personas, and pull data that isn\'t yours. Get caught and start over with nothing.</p>': {
         'de':    '<p><em>Remain at Your Desk</em> ist ein Cyberpunk Incremental Clicker mit zwei Jobs. Tagsüber klickst du Aufgaben und wirst befördert. Nachts hackst du das Firmennetzwerk, kontrollierst den Verdacht, wechselst Personas und ziehst Daten, die dir nicht gehören. Lass dich erwischen und du fängst mit nichts wieder an.</p>',
         'ja':    '<p><em>Remain at Your Desk</em>は二つの仕事を持つサイバーパンク・インクリメンタル・クリッカー。日中はタスクをクリックして昇進する。夜は企業ネットワークをハックし、疑惑を管理し、ペルソナを切り替え、自分のものではないデータを抜き取る。捕まればゼロからやり直しだ。</p>',
@@ -181,14 +281,22 @@ STRINGS = {
         'zh-TW': '<p><em>Remain at Your Desk</em> 是一款擁有雙重身份的賽博龐克放置點擊遊戲。白天點擊任務、爭取晉升。夜晚入侵公司網路、控制懷疑度、切換身份、竊取不屬於你的資料。被抓住,就一無所有重新開始。</p>',
         'pt-BR': '<p><em>Remain at Your Desk</em> é um clicker incremental cyberpunk com dois empregos. De dia você clica em tarefas e é promovido. À noite você invade a rede corporativa, gerencia a suspeita, troca de personas e extrai dados que não são seus. Seja pego e comece do zero.</p>',
         'ru':    '<p><em>Remain at Your Desk</em> — киберпанк-кликер с прогрессией и двумя работами. Днём ты кликаешь по задачам и получаешь повышения. Ночью взламываешь корпоративную сеть, управляешь подозрением, меняешь личины и вытаскиваешь чужие данные. Попадёшься — начнёшь с нуля.</p>',
-    },
+        'ko': '<p><em>Remain at Your Desk</em>는 두 개의 직업을 가진 사이버펑크 인크리멘탈 클리커다. 낮에는 업무를 클릭하고 승진한다. 밤에는 기업 네트워크를 해킹하고, 의심을 관리하며, 페르소나를 바꾸고, 자기 것이 아닌 데이터를 빼낸다. 잡히면 빈손으로 처음부터 다시 시작이다.</p>',
+        'es-MX': '<p><em>Remain at Your Desk</em> es un clicker incremental cyberpunk con dos trabajos. De día haces clic en tareas y te ascienden. De noche hackeas la red corporativa, manejas la sospecha, cambias de personas, y extraes datos que no son tuyos. Te atrapan y empiezas de cero.</p>',
+        'es-ES': '<p><em>Remain at Your Desk</em> es un clicker incremental cyberpunk con dos trabajos. De día haces clic en tareas y asciendes. De noche hackeas la red corporativa, gestionas la sospecha, cambias de personas, y sacas datos que no son tuyos. Si te pillan, empiezas desde cero.</p>',
+        'fr-FR': "<p><em>Remain at Your Desk</em> est un clicker incrémental cyberpunk avec deux boulots. Le jour tu cliques sur des tâches et tu es promu. La nuit tu pirates le réseau de l'entreprise, tu gères la suspicion, tu changes de persona, et tu extrais des données qui ne t'appartiennent pas. Tu te fais prendre et tu repars à zéro.</p>",
+},
 
     # ─── Feature blocks ───
     '<div class="feature-head">Risk</div>': {
         'de': '<div class="feature-head">Risiko</div>', 'ja': '<div class="feature-head">リスク</div>',
         'zh-CN': '<div class="feature-head">风险</div>', 'zh-TW': '<div class="feature-head">風險</div>',
         'pt-BR': '<div class="feature-head">Risco</div>', 'ru': '<div class="feature-head">Риск</div>',
-    },
+        'ko': '<div class="feature-head">위험</div>',
+        'es-MX': '<div class="feature-head">Riesgo</div>',
+        'es-ES': '<div class="feature-head">Riesgo</div>',
+        'fr-FR': '<div class="feature-head">Risque</div>',
+},
     '<p>Every hack raises suspicion. Push too far and security starts paying attention. An audit lands on your desk and then an interrogation follows. If your story doesn\'t hold, you\'re back to Intern with nothing.</p>': {
         'de':    '<p>Jeder Hack erhöht den Verdacht. Übertreib es und die Sicherheit beginnt aufzupassen. Ein Audit landet auf deinem Schreibtisch und dann folgt ein Verhör. Wenn deine Geschichte nicht hält, bist du wieder Praktikant mit nichts.</p>',
         'ja':    '<p>ハックするたびに疑惑が高まる。やりすぎれば警備が動き出す。監査が机に届き、続いて尋問が始まる。話のつじつまが合わなければ、何もないインターンに逆戻りだ。</p>',
@@ -196,12 +304,20 @@ STRINGS = {
         'zh-TW': '<p>每次入侵都會提升懷疑度。走得太遠,安保就會盯上你。稽核降臨到你的桌前,審問隨之而來。故事兜不住,就一無所有重回實習生。</p>',
         'pt-BR': '<p>Cada invasão aumenta a suspeita. Vá longe demais e a segurança começa a prestar atenção. Uma auditoria cai na sua mesa e depois vem o interrogatório. Se sua história não se sustenta, você volta a Estagiário sem nada.</p>',
         'ru':    '<p>Каждый взлом повышает подозрение. Зайди слишком далеко — и охрана начнёт обращать внимание. На стол ложится аудит, а затем — допрос. Если легенда не выдержит, ты снова стажёр и без ничего.</p>',
-    },
+        'ko': '<p>모든 해킹은 의심을 높인다. 너무 멀리 밀어붙이면 보안이 주목하기 시작한다. 감사가 당신의 책상에 떨어지고 심문이 뒤따른다. 이야기가 통하지 않으면 인턴으로 돌아가 빈손이 된다.</p>',
+        'es-MX': '<p>Cada hack sube la sospecha. Empuja demasiado y la seguridad empieza a prestar atención. Una auditoría cae sobre tu escritorio y luego viene un interrogatorio. Si tu historia no aguanta, regresas a Practicante sin nada.</p>',
+        'es-ES': '<p>Cada hackeo sube la sospecha. Si te pasas, la seguridad empieza a prestar atención. Una auditoría cae sobre tu mesa y después viene un interrogatorio. Si tu historia no aguanta, vuelves a Becario sin nada.</p>',
+        'fr-FR': '<p>Chaque piratage augmente la suspicion. Pousse trop loin et la sécurité commence à faire attention. Un audit atterrit sur ton bureau et un interrogatoire suit. Si ton histoire ne tient pas, tu retournes Stagiaire sans rien.</p>',
+},
     '<div class="feature-head">Two Economies</div>': {
         'de': '<div class="feature-head">Zwei Ökonomien</div>', 'ja': '<div class="feature-head">二つの経済</div>',
         'zh-CN': '<div class="feature-head">双重经济</div>', 'zh-TW': '<div class="feature-head">雙重經濟</div>',
         'pt-BR': '<div class="feature-head">Duas Economias</div>', 'ru': '<div class="feature-head">Две экономики</div>',
-    },
+        'ko': '<div class="feature-head">두 개의 경제</div>',
+        'es-MX': '<div class="feature-head">Dos Economías</div>',
+        'es-ES': '<div class="feature-head">Dos Economías</div>',
+        'fr-FR': '<div class="feature-head">Deux Économies</div>',
+},
     '<p>Credits come from the day job. They buy upgrades, automation, and time. Intel comes from hacks. Intel only drops on hacks, so there\'s less of it than credits and you have to take more risk to get it. It feeds its own upgrade tree, and those upgrades make every hack after faster and deadlier. Climb a rank and the BLACK MARKET opens &mdash; intel buys permanent edges there, the kind that survive every reset.</p>': {
         'de':    '<p>Credits kommen vom Tagesjob. Sie kaufen Upgrades, Automatisierung und Zeit. Intel kommt von Hacks. Intel droppt nur durch Hacks, davon gibt es weniger als Credits und du musst mehr Risiko eingehen. Es speist seinen eigenen Upgrade-Baum, und diese Upgrades machen jeden weiteren Hack schneller und tödlicher. Steig einen Rang auf und der BLACK MARKET öffnet sich &mdash; Intel kauft dort permanente Vorteile, die jeden Reset überleben.</p>',
         'ja':    '<p>クレジットは日中の仕事から来る。アップグレードや自動化、時間を買える。インテルはハックから来る。ハックでしか落ちないため、クレジットより少なく、より大きなリスクが必要だ。専用のアップグレードツリーを持ち、その後のハックを速く致命的にする。階級を上げるとBLACK MARKETが開く&mdash;インテルはそこで永続的な優位を買え、それらはあらゆるリセットを生き延びる。</p>',
@@ -209,12 +325,20 @@ STRINGS = {
         'zh-TW': '<p>積分來自白天的工作。可以購買升級、自動化和時間。情報來自入侵。情報只在入侵中掉落,因此比積分稀少,獲取需要更大風險。它有自己的升級樹,這些升級讓之後的每次入侵更快、更致命。晉升一級後 BLACK MARKET 開啟 &mdash; 在那裡情報可以買到永久優勢,經得起每次重置。</p>',
         'pt-BR': '<p>Créditos vêm do trabalho diurno. Compram upgrades, automação e tempo. Intel vem das invasões. Intel só cai em hacks, então há menos dele que de créditos e você precisa correr mais riscos para consegui-lo. Alimenta sua própria árvore de upgrades, e esses upgrades fazem cada hack seguinte mais rápido e mais letal. Suba de cargo e o BLACK MARKET abre &mdash; intel compra vantagens permanentes ali, do tipo que sobrevive a cada reset.</p>',
         'ru':    '<p>Кредиты приходят с дневной работы. Они покупают улучшения, автоматизацию и время. Интел добывается взломами. Интел падает только с хаков, поэтому его меньше, чем кредитов, и за него приходится рисковать больше. У него своё дерево улучшений, и эти улучшения делают каждый следующий взлом быстрее и опаснее. Поднимись в ранге и откроется BLACK MARKET &mdash; интел покупает там постоянные преимущества, которые переживают любой сброс.</p>',
-    },
+        'ko': '<p>크레딧은 낮의 업무에서 나온다. 업그레이드, 자동화, 시간을 살 수 있다. 정보는 해킹에서 나온다. 정보는 해킹에서만 떨어지므로 크레딧보다 적고, 얻으려면 더 큰 위험을 감수해야 한다. 정보는 자체 업그레이드 트리를 키우며, 그 업그레이드는 이후의 모든 해킹을 더 빠르고 치명적으로 만든다. 계급이 오르면 BLACK MARKET이 열린다 &mdash; 거기서 정보는 모든 리셋을 견디는 영구적인 우위를 산다.</p>',
+        'es-MX': '<p>Los créditos vienen del trabajo de día. Compran mejoras, automatización y tiempo. La info viene de los hacks. La info solo cae en hacks, así que hay menos que créditos y tienes que arriesgarte más para conseguirla. Alimenta su propio árbol de mejoras, y esas mejoras hacen que cada hack siguiente sea más rápido y mortal. Sube de rango y se abre el BLACK MARKET &mdash; la info compra ventajas permanentes ahí, del tipo que sobrevive a cada reset.</p>',
+        'es-ES': '<p>Los créditos vienen del trabajo de día. Compran mejoras, automatización y tiempo. La info viene de los hackeos. La info solo cae en hackeos, así que hay menos que créditos y tienes que arriesgarte más para conseguirla. Alimenta su propio árbol de mejoras, y esas mejoras hacen que cada hackeo posterior sea más rápido y letal. Sube de rango y se abre el BLACK MARKET &mdash; ahí la info compra ventajas permanentes, del tipo que sobreviven a cada reinicio.</p>',
+        'fr-FR': "<p>Les crédits viennent du boulot de jour. Ils achètent des améliorations, de l'automatisation et du temps. L'intel vient des piratages. L'intel ne tombe qu'avec les hacks, donc il y en a moins que de crédits et tu dois prendre plus de risques pour l'obtenir. Il alimente son propre arbre d'améliorations, et ces améliorations rendent chaque hack suivant plus rapide et plus mortel. Monte d'un rang et le BLACK MARKET ouvre &mdash; l'intel y achète des avantages permanents, du genre qui survivent à chaque reset.</p>",
+},
     '<div class="feature-head">Cover</div>': {
         'de': '<div class="feature-head">Tarnung</div>', 'ja': '<div class="feature-head">カバー</div>',
         'zh-CN': '<div class="feature-head">掩护</div>', 'zh-TW': '<div class="feature-head">掩護</div>',
         'pt-BR': '<div class="feature-head">Cobertura</div>', 'ru': '<div class="feature-head">Прикрытие</div>',
-    },
+        'ko': '<div class="feature-head">위장</div>',
+        'es-MX': '<div class="feature-head">Cobertura</div>',
+        'es-ES': '<div class="feature-head">Cobertura</div>',
+        'fr-FR': '<div class="feature-head">Couverture</div>',
+},
     '<p>Personas let you hack as someone else. The janitor, the IT admin, the consultant nobody questions. Each has its own bonuses but wears out if you lean on it too hard. If suspicion creeps up, you file a fake report, wipe the logs, or pay someone to forget they saw you.</p>': {
         'de':    '<p>Personas lassen dich als jemand anderes hacken. Der Hausmeister, der IT-Admin, der Berater, den niemand hinterfragt. Jede hat eigene Boni, nutzt sich aber ab, wenn du sie zu sehr beanspruchst. Steigt der Verdacht, reichst du einen gefälschten Bericht ein, löschst Logs oder bezahlst jemanden, dich zu vergessen.</p>',
         'ja':    '<p>ペルソナを使えば別人としてハックできる。清掃員、ITアドミン、誰も疑わないコンサルタント。それぞれ独自のボーナスを持つが、頼りすぎれば消耗する。疑惑が高まれば、偽のレポートを提出し、ログを消し、誰かに見たことを忘れさせる金を払う。</p>',
@@ -222,12 +346,20 @@ STRINGS = {
         'zh-TW': '<p>身份讓你以別人的名義入侵。清潔工、IT 管理員、沒人會質疑的顧問。每個都有獨特加成,但用得太狠就會失效。懷疑度上升時,你就提交假報告、抹掉日誌,或者花錢讓人忘了見過你。</p>',
         'pt-BR': '<p>As Personas deixam você invadir como outra pessoa. O zelador, o administrador de TI, o consultor que ninguém questiona. Cada uma tem seus próprios bônus, mas se desgasta se você apoiar demais nela. Se a suspeita sobe, você envia um relatório falso, apaga os logs ou paga alguém para esquecer que viu você.</p>',
         'ru':    '<p>Личины позволяют взламывать как кто-то другой. Уборщик, IT-админ, консультант, которого никто не допрашивает. У каждой свои бонусы, но они изнашиваются при чрезмерном использовании. Если подозрение растёт, ты подаёшь поддельный отчёт, стираешь логи или платишь кому-то, чтобы забыли, что видели тебя.</p>',
-    },
+        'ko': '<p>페르소나는 다른 사람으로 해킹할 수 있게 해준다. 청소부, IT 관리자, 아무도 의심하지 않는 컨설턴트. 각각 고유한 보너스를 가지지만 너무 많이 의지하면 닳아 없어진다. 의심이 올라가면 가짜 보고서를 제출하거나, 로그를 지우거나, 누군가에게 돈을 주고 당신을 봤다는 것을 잊게 한다.</p>',
+        'es-MX': '<p>Las personas te dejan hackear como alguien más. El conserje, el admin de TI, el consultor que nadie cuestiona. Cada una tiene sus propios bonos pero se gasta si la fuerzas demasiado. Si la sospecha sube, presentas un reporte falso, borras los registros, o le pagas a alguien para que olvide que te vio.</p>',
+        'es-ES': '<p>Las personas te dejan hackear como otra persona. El conserje, el admin de IT, el consultor al que nadie cuestiona. Cada una tiene sus propios bonos pero se desgasta si te apoyas demasiado en ella. Si sube la sospecha, presentas un informe falso, borras los logs, o le pagas a alguien para que olvide que te vio.</p>',
+        'fr-FR': "<p>Les personas te permettent de pirater en tant que quelqu'un d'autre. Le concierge, l'admin IT, le consultant que personne ne questionne. Chacune a ses propres bonus mais s'use si tu t'y appuies trop fort. Si la suspicion monte, tu déposes un faux rapport, tu effaces les logs, ou tu payes quelqu'un pour oublier qu'il t'a vu.</p>",
+},
     '<div class="feature-head">Leverage</div>': {
         'de': '<div class="feature-head">Druckmittel</div>', 'ja': '<div class="feature-head">レバレッジ</div>',
         'zh-CN': '<div class="feature-head">把柄</div>', 'zh-TW': '<div class="feature-head">把柄</div>',
         'pt-BR': '<div class="feature-head">Influência</div>', 'ru': '<div class="feature-head">Рычаги</div>',
-    },
+        'ko': '<div class="feature-head">레버리지</div>',
+        'es-MX': '<div class="feature-head">Influencia</div>',
+        'es-ES': '<div class="feature-head">Influencia</div>',
+        'fr-FR': '<div class="feature-head">Levier</div>',
+},
     '<p>Not everything is worth selling. Hack the same target enough times and you build a dossier. This creates permanent leverage that survives resets. The email server shows you who hates who. The security network shows you where the cameras are not. Executive files show you how the system really works.</p>': {
         'de':    '<p>Nicht alles ist es wert verkauft zu werden. Hacke dasselbe Ziel oft genug und du baust ein Dossier auf. Das erschafft permanente Druckmittel, die Resets überleben. Der E-Mail-Server zeigt dir, wer wen hasst. Das Sicherheitsnetzwerk zeigt dir, wo die Kameras nicht sind. Vorstands-Dateien zeigen dir, wie das System wirklich funktioniert.</p>',
         'ja':    '<p>すべてが売る価値があるわけではない。同じターゲットを何度もハックすればドシエが完成する。それはリセットを生き延びる永続的なレバレッジを生む。メールサーバーは誰が誰を憎んでいるか教える。セキュリティネットワークはカメラのない場所を示す。役員ファイルはシステムの本当の仕組みを明かす。</p>',
@@ -235,12 +367,20 @@ STRINGS = {
         'zh-TW': '<p>不是什麼都值得賣。把同一個目標駭夠次數就能建成一份檔案。這會形成經得起重置的永久把柄。郵件伺服器告訴你誰恨誰。安保網路告訴你哪裡沒有攝影機。高管檔案告訴你系統真正的運作方式。</p>',
         'pt-BR': '<p>Nem tudo vale a pena vender. Invada o mesmo alvo vezes o bastante e você monta um dossiê. Isso cria influência permanente que sobrevive a resets. O servidor de e-mail mostra quem odeia quem. A rede de segurança mostra onde as câmeras não estão. Os arquivos executivos mostram como o sistema realmente funciona.</p>',
         'ru':    '<p>Не всё стоит продавать. Взломай одну и ту же цель достаточно раз — и соберёшь досье. Оно создаёт постоянные рычаги, переживающие сбросы. Почтовый сервер покажет, кто кого ненавидит. Сеть безопасности — где нет камер. Файлы руководства — как система работает на самом деле.</p>',
-    },
+        'ko': '<p>모든 것이 팔만한 가치가 있는 것은 아니다. 같은 표적을 충분히 해킹하면 도시에가 만들어진다. 이는 리셋을 견디는 영구적인 레버리지를 만든다. 이메일 서버는 누가 누구를 미워하는지 알려준다. 보안 네트워크는 카메라가 없는 곳을 알려준다. 임원 파일은 시스템이 실제로 어떻게 작동하는지 보여준다.</p>',
+        'es-MX': '<p>No todo vale la pena venderlo. Hackea el mismo objetivo suficientes veces y construyes un expediente. Esto crea influencia permanente que sobrevive a los resets. El servidor de correo te muestra quién odia a quién. La red de seguridad te muestra dónde no están las cámaras. Los archivos ejecutivos te muestran cómo funciona realmente el sistema.</p>',
+        'es-ES': '<p>No todo merece la pena venderlo. Hackea el mismo objetivo las veces suficientes y montas un dossier. Esto crea influencia permanente que sobrevive a los reinicios. El servidor de correo te muestra quién odia a quién. La red de seguridad te muestra dónde no están las cámaras. Los archivos ejecutivos te muestran cómo funciona realmente el sistema.</p>',
+        'fr-FR': "<p>Tout ne vaut pas la peine d'être vendu. Pirate la même cible assez de fois et tu montes un dossier. Cela crée un levier permanent qui survit aux resets. Le serveur mail te montre qui déteste qui. Le réseau de sécurité te montre où les caméras ne sont pas. Les fichiers de la direction te montrent comment le système fonctionne vraiment.</p>",
+},
     '<div class="feature-head">Prestige</div>': {
         'de': '<div class="feature-head">Prestige</div>', 'ja': '<div class="feature-head">プレステージ</div>',
         'zh-CN': '<div class="feature-head">声望</div>', 'zh-TW': '<div class="feature-head">聲望</div>',
         'pt-BR': '<div class="feature-head">Prestígio</div>', 'ru': '<div class="feature-head">Престиж</div>',
-    },
+        'ko': '<div class="feature-head">프레스티지</div>',
+        'es-MX': '<div class="feature-head">Prestigio</div>',
+        'es-ES': '<div class="feature-head">Prestigio</div>',
+        'fr-FR': '<div class="feature-head">Prestige</div>',
+},
     '<p>Get promoted and you start over with stronger multipliers and personas that stick. Get caught and you start over with nothing.</p>': {
         'de':    '<p>Lass dich befördern und du startest neu mit stärkeren Multiplikatoren und bleibenden Personas. Lass dich erwischen und du startest neu mit nichts.</p>',
         'ja':    '<p>昇進すれば強いマルチプライヤーと残るペルソナを持って再スタート。捕まれば何もない状態で再スタートだ。</p>',
@@ -248,125 +388,217 @@ STRINGS = {
         'zh-TW': '<p>晉升,帶著更強的倍率和保留的身份重新開始。被抓,一無所有重新開始。</p>',
         'pt-BR': '<p>Seja promovido e recomece com multiplicadores mais fortes e personas que ficam. Seja pego e recomece com nada.</p>',
         'ru':    '<p>Получи повышение и начни заново с сильными множителями и сохранёнными личинами. Попадись — начни заново с нуля.</p>',
-    },
+        'ko': '<p>승진하면 더 강한 배율과 유지되는 페르소나로 다시 시작한다. 잡히면 빈손으로 다시 시작이다.</p>',
+        'es-MX': '<p>Te ascienden y empiezas de nuevo con multiplicadores más fuertes y personas que se quedan. Te atrapan y empiezas de cero.</p>',
+        'es-ES': '<p>Te ascienden y empiezas de nuevo con multiplicadores más fuertes y personas que se quedan. Si te pillan, empiezas desde cero.</p>',
+        'fr-FR': '<p>Sois promu et tu repars avec des multiplicateurs plus forts et des personas qui restent. Fais-toi prendre et tu repars sans rien.</p>',
+},
 
     # ─── Section headers ───
     '<h2>Capsule Art &amp; Key Images</h2>': {
         'de': '<h2>Capsule-Art &amp; Schlüsselbilder</h2>', 'ja': '<h2>カプセルアート &amp; キービジュアル</h2>',
         'zh-CN': '<h2>胶囊图 &amp; 关键视觉</h2>', 'zh-TW': '<h2>膠囊圖 &amp; 關鍵視覺</h2>',
         'pt-BR': '<h2>Arte de Capsule &amp; Imagens Principais</h2>', 'ru': '<h2>Капсульный арт и ключевые изображения</h2>',
-    },
+        'ko': '<h2>캡슐 아트 &amp; 핵심 이미지</h2>',
+        'es-MX': '<h2>Arte de Capsule &amp; Imágenes Clave</h2>',
+        'es-ES': '<h2>Arte de Capsule &amp; Imágenes Clave</h2>',
+        'fr-FR': '<h2>Capsule &amp; Images Clés</h2>',
+},
     '<h2>Capsule Art & Key Images</h2>': {
         'de': '<h2>Capsule-Art & Schlüsselbilder</h2>', 'ja': '<h2>カプセルアート & キービジュアル</h2>',
         'zh-CN': '<h2>胶囊图 & 关键视觉</h2>', 'zh-TW': '<h2>膠囊圖 & 關鍵視覺</h2>',
         'pt-BR': '<h2>Arte de Capsule & Imagens Principais</h2>', 'ru': '<h2>Капсульный арт и ключевые изображения</h2>',
-    },
+        'ko': '<h2>캡슐 아트 & 핵심 이미지</h2>',
+        'es-MX': '<h2>Arte de Capsule & Imágenes Clave</h2>',
+        'es-ES': '<h2>Arte de Capsule & Imágenes Clave</h2>',
+        'fr-FR': '<h2>Capsule & Images Clés</h2>',
+},
     '<h2>Screenshots &amp; Media</h2>': {
         'de': '<h2>Screenshots &amp; Medien</h2>', 'ja': '<h2>スクリーンショット &amp; メディア</h2>',
         'zh-CN': '<h2>截图 &amp; 媒体</h2>', 'zh-TW': '<h2>截圖 &amp; 媒體</h2>',
         'pt-BR': '<h2>Screenshots &amp; Mídia</h2>', 'ru': '<h2>Скриншоты и медиа</h2>',
-    },
+        'ko': '<h2>스크린샷 &amp; 미디어</h2>',
+        'es-MX': '<h2>Capturas &amp; Medios</h2>',
+        'es-ES': '<h2>Capturas &amp; Medios</h2>',
+        'fr-FR': "<h2>Captures d'écran &amp; Médias</h2>",
+},
     '<h2>Screenshots & Media</h2>': {
         'de': '<h2>Screenshots & Medien</h2>', 'ja': '<h2>スクリーンショット & メディア</h2>',
         'zh-CN': '<h2>截图 & 媒体</h2>', 'zh-TW': '<h2>截圖 & 媒體</h2>',
         'pt-BR': '<h2>Screenshots & Mídia</h2>', 'ru': '<h2>Скриншоты и медиа</h2>',
-    },
+        'ko': '<h2>스크린샷 & 미디어</h2>',
+        'es-MX': '<h2>Capturas & Medios</h2>',
+        'es-ES': '<h2>Capturas & Medios</h2>',
+        'fr-FR': "<h2>Captures d'écran & Médias</h2>",
+},
     '<h2>Featured In</h2>': {
         'de': '<h2>Erwähnt In</h2>', 'ja': '<h2>掲載メディア</h2>',
         'zh-CN': '<h2>媒体报道</h2>', 'zh-TW': '<h2>媒體報導</h2>',
         'pt-BR': '<h2>Destaques na Imprensa</h2>', 'ru': '<h2>Упоминания в прессе</h2>',
-    },
+        'ko': '<h2>언론 보도</h2>',
+        'es-MX': '<h2>Destacado en</h2>',
+        'es-ES': '<h2>Destacado en</h2>',
+        'fr-FR': '<h2>Mentionné dans</h2>',
+},
     '<h2>Developer</h2>': {
         'de': '<h2>Entwickler</h2>', 'ja': '<h2>開発者</h2>',
         'zh-CN': '<h2>开发者</h2>', 'zh-TW': '<h2>開發者</h2>',
         'pt-BR': '<h2>Desenvolvedor</h2>', 'ru': '<h2>Разработчик</h2>',
-    },
+        'ko': '<h2>개발자</h2>',
+        'es-MX': '<h2>Desarrollador</h2>',
+        'es-ES': '<h2>Desarrollador</h2>',
+        'fr-FR': '<h2>Développeur</h2>',
+},
     '<h2>Contact</h2>': {
         'de': '<h2>Kontakt</h2>', 'ja': '<h2>連絡先</h2>',
         'zh-CN': '<h2>联系</h2>', 'zh-TW': '<h2>聯絡</h2>',
         'pt-BR': '<h2>Contato</h2>', 'ru': '<h2>Контакты</h2>',
-    },
+        'ko': '<h2>연락처</h2>',
+        'es-MX': '<h2>Contacto</h2>',
+        'es-ES': '<h2>Contacto</h2>',
+        'fr-FR': '<h2>Contact</h2>',
+},
 
     # ─── Capsule labels ───
     'Main Capsule (460&times;215)': {
         'de': 'Main Capsule (460&times;215)', 'ja': 'メインカプセル (460&times;215)',
         'zh-CN': '主胶囊图 (460&times;215)', 'zh-TW': '主膠囊圖 (460&times;215)',
         'pt-BR': 'Capsule Principal (460&times;215)', 'ru': 'Основная капсула (460&times;215)',
-    },
+        'ko': '메인 캡슐 (460&times;215)',
+        'es-MX': 'Capsule Principal (460&times;215)',
+        'es-ES': 'Capsule Principal (460&times;215)',
+        'fr-FR': 'Capsule Principale (460&times;215)',
+},
     'Header / Library Capsule (460&times;215)': {
         'de': 'Header / Library Capsule (460&times;215)', 'ja': 'ヘッダー / ライブラリカプセル (460&times;215)',
         'zh-CN': '页头 / 库胶囊图 (460&times;215)', 'zh-TW': '頁首 / 庫膠囊圖 (460&times;215)',
         'pt-BR': 'Header / Capsule de Biblioteca (460&times;215)', 'ru': 'Шапка / Капсула библиотеки (460&times;215)',
-    },
+        'ko': '헤더 / 라이브러리 캡슐 (460&times;215)',
+        'es-MX': 'Header / Capsule de Biblioteca (460&times;215)',
+        'es-ES': 'Header / Capsule de Biblioteca (460&times;215)',
+        'fr-FR': 'Header / Capsule Bibliothèque (460&times;215)',
+},
     'Hero Art (1920&times;620)': {
         'de': 'Hero-Art (1920&times;620)', 'ja': 'ヒーローアート (1920&times;620)',
         'zh-CN': '主视觉 (1920&times;620)', 'zh-TW': '主視覺 (1920&times;620)',
         'pt-BR': 'Arte Hero (1920&times;620)', 'ru': 'Hero-арт (1920&times;620)',
-    },
+        'ko': '히어로 아트 (1920&times;620)',
+        'es-MX': 'Arte Hero (1920&times;620)',
+        'es-ES': 'Arte Hero (1920&times;620)',
+        'fr-FR': 'Hero Art (1920&times;620)',
+},
     'Library Capsule</div>': {
         'de': 'Library Capsule</div>', 'ja': 'ライブラリカプセル</div>',
         'zh-CN': '库胶囊图</div>', 'zh-TW': '庫膠囊圖</div>',
         'pt-BR': 'Capsule de Biblioteca</div>', 'ru': 'Капсула библиотеки</div>',
-    },
+        'ko': '라이브러리 캡슐</div>',
+        'es-MX': 'Capsule de Biblioteca</div>',
+        'es-ES': 'Capsule de Biblioteca</div>',
+        'fr-FR': 'Capsule Bibliothèque</div>',
+},
     'Small Capsule (231&times;87)': {
         'de': 'Small Capsule (231&times;87)', 'ja': 'スモールカプセル (231&times;87)',
         'zh-CN': '小胶囊图 (231&times;87)', 'zh-TW': '小膠囊圖 (231&times;87)',
         'pt-BR': 'Capsule Pequena (231&times;87)', 'ru': 'Малая капсула (231&times;87)',
-    },
+        'ko': '스몰 캡슐 (231&times;87)',
+        'es-MX': 'Capsule Pequeña (231&times;87)',
+        'es-ES': 'Capsule Pequeña (231&times;87)',
+        'fr-FR': 'Petite Capsule (231&times;87)',
+},
     'Vertical Capsule (374&times;448)': {
         'de': 'Vertical Capsule (374&times;448)', 'ja': '縦型カプセル (374&times;448)',
         'zh-CN': '竖向胶囊图 (374&times;448)', 'zh-TW': '直向膠囊圖 (374&times;448)',
         'pt-BR': 'Capsule Vertical (374&times;448)', 'ru': 'Вертикальная капсула (374&times;448)',
-    },
+        'ko': '버티컬 캡슐 (374&times;448)',
+        'es-MX': 'Capsule Vertical (374&times;448)',
+        'es-ES': 'Capsule Vertical (374&times;448)',
+        'fr-FR': 'Capsule Verticale (374&times;448)',
+},
 
     # ─── Media section ───
     '&gt; Latest Trailer': {
         'de': '&gt; Neuester Trailer', 'ja': '&gt; 最新トレーラー',
         'zh-CN': '&gt; 最新预告', 'zh-TW': '&gt; 最新預告',
         'pt-BR': '&gt; Trailer Mais Recente', 'ru': '&gt; Последний трейлер',
-    },
+        'ko': '&gt; 최신 트레일러',
+        'es-MX': '&gt; Tráiler Más Reciente',
+        'es-ES': '&gt; Tráiler Más Reciente',
+        'fr-FR': '&gt; Dernière Bande-Annonce',
+},
     '&gt; Launch Trailer': {
         'de': '&gt; Launch-Trailer', 'ja': '&gt; ローンチトレーラー',
         'zh-CN': '&gt; 发布预告', 'zh-TW': '&gt; 發行預告',
         'pt-BR': '&gt; Trailer de Lançamento', 'ru': '&gt; Релизный трейлер',
-    },
+        'ko': '&gt; 출시 트레일러',
+        'es-MX': '&gt; Tráiler de Lanzamiento',
+        'es-ES': '&gt; Tráiler de Lanzamiento',
+        'fr-FR': '&gt; Bande-Annonce de Lancement',
+},
     'CLICK TO ENLARGE': {
         'de': 'ZUM VERGRÖSSERN KLICKEN', 'ja': 'クリックで拡大',
         'zh-CN': '点击放大', 'zh-TW': '點擊放大',
         'pt-BR': 'CLIQUE PARA AMPLIAR', 'ru': 'НАЖМИТЕ ДЛЯ УВЕЛИЧЕНИЯ',
-    },
+        'ko': '클릭하여 확대',
+        'es-MX': 'CLIC PARA AMPLIAR',
+        'es-ES': 'CLIC PARA AMPLIAR',
+        'fr-FR': 'CLIQUER POUR AGRANDIR',
+},
     'DOWNLOAD ALL ASSETS (.ZIP)': {
         'de': 'ALLE ASSETS HERUNTERLADEN (.ZIP)', 'ja': '全素材ダウンロード (.ZIP)',
         'zh-CN': '下载全部素材 (.ZIP)', 'zh-TW': '下載全部素材 (.ZIP)',
         'pt-BR': 'BAIXAR TODOS RECURSOS (.ZIP)', 'ru': 'СКАЧАТЬ ВСЕ МАТЕРИАЛЫ (.ZIP)',
-    },
+        'ko': '모든 에셋 다운로드 (.ZIP)',
+        'es-MX': 'DESCARGAR TODOS LOS RECURSOS (.ZIP)',
+        'es-ES': 'DESCARGAR TODOS LOS RECURSOS (.ZIP)',
+        'fr-FR': 'TÉLÉCHARGER TOUTES LES RESSOURCES (.ZIP)',
+},
     'DOWNLOAD 4K TRAILER': {
         'de': '4K-TRAILER HERUNTERLADEN', 'ja': '4Kトレーラーダウンロード',
         'zh-CN': '下载 4K 预告片', 'zh-TW': '下載 4K 預告片',
         'pt-BR': 'BAIXAR TRAILER 4K', 'ru': 'СКАЧАТЬ 4K ТРЕЙЛЕР',
-    },
+        'ko': '4K 트레일러 다운로드',
+        'es-MX': 'DESCARGAR TRÁILER 4K',
+        'es-ES': 'DESCARGAR TRÁILER 4K',
+        'fr-FR': 'TÉLÉCHARGER LA BANDE-ANNONCE 4K',
+},
 
     # ─── Press item meta ───
     'Taiwan &middot; Gaming News': {
         'de': 'Taiwan &middot; Gaming-News', 'ja': '台湾 &middot; ゲームニュース',
         'zh-CN': '台湾 &middot; 游戏新闻', 'zh-TW': '台灣 &middot; 遊戲新聞',
         'pt-BR': 'Taiwan &middot; Notícias de Games', 'ru': 'Тайвань &middot; Игровые новости',
-    },
+        'ko': '대만 &middot; 게임 뉴스',
+        'es-MX': 'Taiwán &middot; Noticias de Videojuegos',
+        'es-ES': 'Taiwán &middot; Noticias de Videojuegos',
+        'fr-FR': 'Taïwan &middot; Actualités Jeux Vidéo',
+},
     'Japan &middot; Industry Trade': {
         'de': 'Japan &middot; Branchenfachpresse', 'ja': '日本 &middot; 業界誌',
         'zh-CN': '日本 &middot; 行业媒体', 'zh-TW': '日本 &middot; 產業媒體',
         'pt-BR': 'Japão &middot; Imprensa de Setor', 'ru': 'Япония &middot; Отраслевая пресса',
-    },
+        'ko': '일본 &middot; 업계지',
+        'es-MX': 'Japón &middot; Prensa de la Industria',
+        'es-ES': 'Japón &middot; Prensa Sectorial',
+        'fr-FR': 'Japon &middot; Presse Spécialisée',
+},
     'Korea &middot; Indie Coverage': {
         'de': 'Korea &middot; Indie-Berichterstattung', 'ja': '韓国 &middot; インディー報道',
         'zh-CN': '韩国 &middot; 独立游戏报道', 'zh-TW': '韓國 &middot; 獨立遊戲報導',
         'pt-BR': 'Coreia &middot; Cobertura Indie', 'ru': 'Корея &middot; Инди-пресса',
-    },
+        'ko': '한국 &middot; 인디 보도',
+        'es-MX': 'Corea &middot; Cobertura Indie',
+        'es-ES': 'Corea &middot; Cobertura Indie',
+        'fr-FR': 'Corée &middot; Couverture Indé',
+},
     'Podcast &middot; Episode 310': {
         'de': 'Podcast &middot; Episode 310', 'ja': 'ポッドキャスト &middot; エピソード310',
         'zh-CN': '播客 &middot; 第 310 集', 'zh-TW': '播客 &middot; 第 310 集',
         'pt-BR': 'Podcast &middot; Episódio 310', 'ru': 'Подкаст &middot; Эпизод 310',
-    },
+        'ko': '팟캐스트 &middot; 310화',
+        'es-MX': 'Podcast &middot; Episodio 310',
+        'es-ES': 'Podcast &middot; Episodio 310',
+        'fr-FR': 'Podcast &middot; Épisode 310',
+},
 
     # ─── Team ───
     'Solo Developer / Composer — Crunch Moonkiss Studios': {
@@ -376,7 +608,11 @@ STRINGS = {
         'zh-TW': '獨立開發者 / 作曲家 — Crunch Moonkiss Studios',
         'pt-BR': 'Desenvolvedor Solo / Compositor — Crunch Moonkiss Studios',
         'ru':    'Соло-разработчик / Композитор — Crunch Moonkiss Studios',
-    },
+        'ko': '1인 개발자 / 작곡가 — Crunch Moonkiss Studios',
+        'es-MX': 'Desarrollador Solo / Compositor — Crunch Moonkiss Studios',
+        'es-ES': 'Desarrollador Solo / Compositor — Crunch Moonkiss Studios',
+        'fr-FR': 'Développeur Solo / Compositeur — Crunch Moonkiss Studios',
+},
     'Jared D. is a NYC-based solo indie developer and award-winning film composer. He is also developing <em>Groove Defense</em> (Steam, TBD) — a music-driven tower defense game where every tower adds a layer to the soundtrack.': {
         'de':    'Jared D. ist ein in NYC ansässiger Solo-Indie-Entwickler und preisgekrönter Filmkomponist. Er entwickelt außerdem <em>Groove Defense</em> (Steam, TBA) — ein musikgesteuertes Tower-Defense-Spiel, bei dem jeder Turm eine Schicht zum Soundtrack hinzufügt.',
         'ja':    'Jared D. はニューヨーク在住のソロインディー開発者で受賞歴のある映画作曲家。<em>Groove Defense</em>(Steam、未定)も開発中—すべてのタワーがサウンドトラックに一層を加える音楽主導のタワーディフェンスゲーム。',
@@ -384,39 +620,67 @@ STRINGS = {
         'zh-TW': 'Jared D. 是常駐紐約的獨立遊戲開發者,也是獲獎電影配樂作曲家。他同時在開發 <em>Groove Defense</em>(Steam,待定)—一款由音樂驅動的塔防遊戲,每座防禦塔都會為配樂添加一層音軌。',
         'pt-BR': 'Jared D. é um desenvolvedor indie solo baseado em NYC e compositor de filmes premiado. Também desenvolve <em>Groove Defense</em> (Steam, a definir) — um tower defense musical onde cada torre adiciona uma camada à trilha sonora.',
         'ru':    'Джаред Д. — нью-йоркский соло-инди-разработчик и удостоенный наград кинокомпозитор. Также разрабатывает <em>Groove Defense</em> (Steam, дата TBD) — музыкальный tower defense, где каждая башня добавляет слой к саундтреку.',
-    },
+        'ko': 'Jared D.는 뉴욕에 거주하는 1인 인디 개발자이자 수상 경력이 있는 영화 작곡가다. 또한 <em>Groove Defense</em>(Steam, 미정)도 개발 중이다 — 모든 타워가 사운드트랙에 한 층을 더하는 음악 기반 타워 디펜스 게임이다.',
+        'es-MX': 'Jared D. es un desarrollador indie en solitario radicado en NYC y compositor de cine galardonado. También desarrolla <em>Groove Defense</em> (Steam, por definir) — un tower defense musical donde cada torre añade una capa a la banda sonora.',
+        'es-ES': 'Jared D. es un desarrollador indie en solitario afincado en Nueva York y compositor de cine premiado. También desarrolla <em>Groove Defense</em> (Steam, por confirmar) — un tower defense musical donde cada torre añade una capa a la banda sonora.',
+        'fr-FR': 'Jared D. est un développeur indé solo basé à New York et compositeur de cinéma primé. Il développe également <em>Groove Defense</em> (Steam, à venir) — un tower defense musical où chaque tour ajoute une couche à la bande-son.',
+},
 
     # ─── Contact ───
     '<div class="clabel">Press Inquiries</div>': {
         'de': '<div class="clabel">Presseanfragen</div>', 'ja': '<div class="clabel">プレス問い合わせ</div>',
         'zh-CN': '<div class="clabel">媒体咨询</div>', 'zh-TW': '<div class="clabel">媒體諮詢</div>',
         'pt-BR': '<div class="clabel">Contato de Imprensa</div>', 'ru': '<div class="clabel">Запросы прессы</div>',
-    },
+        'ko': '<div class="clabel">언론 문의</div>',
+        'es-MX': '<div class="clabel">Consultas de Prensa</div>',
+        'es-ES': '<div class="clabel">Consultas de Prensa</div>',
+        'fr-FR': '<div class="clabel">Demandes Presse</div>',
+},
     '<div class="clabel">Steam Page</div>': {
         'de': '<div class="clabel">Steam-Seite</div>', 'ja': '<div class="clabel">Steamページ</div>',
         'zh-CN': '<div class="clabel">Steam 页面</div>', 'zh-TW': '<div class="clabel">Steam 頁面</div>',
         'pt-BR': '<div class="clabel">Página Steam</div>', 'ru': '<div class="clabel">Страница Steam</div>',
-    },
+        'ko': '<div class="clabel">Steam 페이지</div>',
+        'es-MX': '<div class="clabel">Página Steam</div>',
+        'es-ES': '<div class="clabel">Página Steam</div>',
+        'fr-FR': '<div class="clabel">Page Steam</div>',
+},
     '<div class="clabel">Studio</div>': {
         'de': '<div class="clabel">Studio</div>', 'ja': '<div class="clabel">スタジオ</div>',
         'zh-CN': '<div class="clabel">工作室</div>', 'zh-TW': '<div class="clabel">工作室</div>',
         'pt-BR': '<div class="clabel">Estúdio</div>', 'ru': '<div class="clabel">Студия</div>',
-    },
+        'ko': '<div class="clabel">스튜디오</div>',
+        'es-MX': '<div class="clabel">Estudio</div>',
+        'es-ES': '<div class="clabel">Estudio</div>',
+        'fr-FR': '<div class="clabel">Studio</div>',
+},
     '<div class="clabel">Location</div>': {
         'de': '<div class="clabel">Standort</div>', 'ja': '<div class="clabel">所在地</div>',
         'zh-CN': '<div class="clabel">地点</div>', 'zh-TW': '<div class="clabel">地點</div>',
         'pt-BR': '<div class="clabel">Localização</div>', 'ru': '<div class="clabel">Расположение</div>',
-    },
+        'ko': '<div class="clabel">위치</div>',
+        'es-MX': '<div class="clabel">Ubicación</div>',
+        'es-ES': '<div class="clabel">Ubicación</div>',
+        'fr-FR': '<div class="clabel">Localisation</div>',
+},
     'New York City, USA': {
         'de': 'New York City, USA', 'ja': 'ニューヨーク, アメリカ',
         'zh-CN': '美国 纽约', 'zh-TW': '美國 紐約',
         'pt-BR': 'Nova York, EUA', 'ru': 'Нью-Йорк, США',
-    },
+        'ko': '미국 뉴욕시',
+        'es-MX': 'Nueva York, EE.UU.',
+        'es-ES': 'Nueva York, EE.UU.',
+        'fr-FR': 'New York, États-Unis',
+},
     'Remain At Your Desk on Steam': {
         'de': 'Remain At Your Desk auf Steam', 'ja': 'SteamのRemain At Your Desk',
         'zh-CN': 'Remain At Your Desk Steam 页面', 'zh-TW': 'Remain At Your Desk Steam 頁面',
         'pt-BR': 'Remain At Your Desk no Steam', 'ru': 'Remain At Your Desk в Steam',
-    },
+        'ko': 'Steam의 Remain At Your Desk',
+        'es-MX': 'Remain At Your Desk en Steam',
+        'es-ES': 'Remain At Your Desk en Steam',
+        'fr-FR': 'Remain At Your Desk sur Steam',
+},
 
     # ─── Footer ───
     '&copy; 2026 Crunch Moonkiss Studios — All rights reserved': {
@@ -426,7 +690,11 @@ STRINGS = {
         'zh-TW': '&copy; 2026 Crunch Moonkiss Studios — 保留所有權利',
         'pt-BR': '&copy; 2026 Crunch Moonkiss Studios — Todos os direitos reservados',
         'ru':    '&copy; 2026 Crunch Moonkiss Studios — Все права защищены',
-    },
+        'ko': '&copy; 2026 Crunch Moonkiss Studios — 모든 권리 보유',
+        'es-MX': '&copy; 2026 Crunch Moonkiss Studios — Todos los derechos reservados',
+        'es-ES': '&copy; 2026 Crunch Moonkiss Studios — Todos los derechos reservados',
+        'fr-FR': '&copy; 2026 Crunch Moonkiss Studios — Tous droits réservés',
+},
     '&gt; SESSION TERMINATED_': {
         'de':    '&gt; SITZUNG BEENDET_',
         'ja':    '&gt; セッション終了_',
@@ -434,7 +702,11 @@ STRINGS = {
         'zh-TW': '&gt; 工作階段已終止_',
         'pt-BR': '&gt; SESSÃO ENCERRADA_',
         'ru':    '&gt; СЕССИЯ ЗАВЕРШЕНА_',
-    },
+        'ko': '&gt; 세션 종료_',
+        'es-MX': '&gt; SESIÓN TERMINADA_',
+        'es-ES': '&gt; SESIÓN TERMINADA_',
+        'fr-FR': '&gt; SESSION TERMINÉE_',
+},
 
     # ─── Screenshot alt text ───
     'alt="Night Mode — Hacking Route Choice"': {
@@ -444,7 +716,11 @@ STRINGS = {
         'zh-TW': 'alt="夜間模式 — 入侵路徑選擇"',
         'pt-BR': 'alt="Modo Noturno — Escolha de Rota de Hack"',
         'ru':    'alt="Ночной режим — Выбор маршрута взлома"',
-    },
+        'ko': 'alt="나이트 모드 — 해킹 경로 선택"',
+        'es-MX': 'alt="Modo Noche — Elección de Ruta de Hack"',
+        'es-ES': 'alt="Modo Noche — Elección de Ruta de Hackeo"',
+        'fr-FR': 'alt="Mode Nuit — Choix de Route de Piratage"',
+},
     'alt="Day Mode — Corporate Tasks"': {
         'de':    'alt="Tagmodus — Firmenaufgaben"',
         'ja':    'alt="デイモード — 企業タスク"',
@@ -452,7 +728,11 @@ STRINGS = {
         'zh-TW': 'alt="白天模式 — 公司任務"',
         'pt-BR': 'alt="Modo Diurno — Tarefas Corporativas"',
         'ru':    'alt="Дневной режим — Корпоративные задачи"',
-    },
+        'ko': 'alt="데이 모드 — 기업 업무"',
+        'es-MX': 'alt="Modo Día — Tareas Corporativas"',
+        'es-ES': 'alt="Modo Día — Tareas Corporativas"',
+        'fr-FR': 'alt="Mode Jour — Tâches d\'Entreprise"',
+},
     'alt="Leverage — Archive the Dirt, or Leak It for Credits"': {
         'de':    'alt="Druckmittel — Den Dreck archivieren oder gegen Credits leaken"',
         'ja':    'alt="レバレッジ — 闇を保管するか、クレジットのために漏らすか"',
@@ -460,7 +740,11 @@ STRINGS = {
         'zh-TW': 'alt="把柄 — 存檔黑料,或洩露換積分"',
         'pt-BR': 'alt="Influência — Arquive a sujeira ou vaze por créditos"',
         'ru':    'alt="Рычаги — Заархивируй компромат или слей за кредиты"',
-    },
+        'ko': 'alt="레버리지 — 약점을 보관하거나, 크레딧을 위해 유출"',
+        'es-MX': 'alt="Influencia — Archiva el Trapo Sucio, o Filtra por Créditos"',
+        'es-ES': 'alt="Influencia — Archiva los Trapos Sucios, o Filtra por Créditos"',
+        'fr-FR': 'alt="Levier — Archive le Linge Sale, ou Fuite-le pour des Crédits"',
+},
     'alt="Black Market — Permanent Perks Off the Books"': {
         'de':    'alt="Black Market — Permanente Vorteile außerhalb der Bücher"',
         'ja':    'alt="Black Market — 帳簿外の永続パーク"',
@@ -468,7 +752,11 @@ STRINGS = {
         'zh-TW': 'alt="Black Market — 帳外永久加成"',
         'pt-BR': 'alt="Black Market — Vantagens permanentes fora dos registros"',
         'ru':    'alt="Black Market — Постоянные перки в обход бухгалтерии"',
-    },
+        'ko': 'alt="Black Market — 장부 외 영구 특전"',
+        'es-MX': 'alt="Black Market — Ventajas Permanentes Fuera de los Libros"',
+        'es-ES': 'alt="Black Market — Ventajas Permanentes Fuera de los Libros"',
+        'fr-FR': 'alt="Black Market — Avantages Permanents Hors Livres"',
+},
     'alt="Hack In Progress — Breach Detected"': {
         'de':    'alt="Hack in Bearbeitung — Eindringen erkannt"',
         'ja':    'alt="ハック実行中 — 侵入検知"',
@@ -476,7 +764,11 @@ STRINGS = {
         'zh-TW': 'alt="入侵進行中 — 偵測到突破"',
         'pt-BR': 'alt="Invasão Em Progresso — Brecha Detectada"',
         'ru':    'alt="Взлом в процессе — Обнаружено вторжение"',
-    },
+        'ko': 'alt="해킹 진행 중 — 침입 감지"',
+        'es-MX': 'alt="Hack en Progreso — Brecha Detectada"',
+        'es-ES': 'alt="Hackeo en Progreso — Brecha Detectada"',
+        'fr-FR': 'alt="Piratage en Cours — Brèche Détectée"',
+},
     'alt="CONDUIT — I See What You Are"': {
         'de':    'alt="KANAL — Ich sehe, was du bist"',
         'ja':    'alt="コンジット — 私はあなたが何者か見えている"',
@@ -484,7 +776,11 @@ STRINGS = {
         'zh-TW': 'alt="導管 — 我看見你是什麼"',
         'pt-BR': 'alt="CONDUTOR — Eu vejo o que você é"',
         'ru':    'alt="ПРОВОДНИК — Я вижу, кто ты"',
-    },
+        'ko': 'alt="CONDUIT — 나는 네가 무엇인지 보고 있다"',
+        'es-MX': 'alt="CONDUCTO — Veo Lo Que Eres"',
+        'es-ES': 'alt="CONDUCTO — Veo Lo Que Eres"',
+        'fr-FR': 'alt="CONDUIT — Je Vois Ce Que Tu Es"',
+},
     'alt="Promotion — Employee Performance Review"': {
         'de':    'alt="Beförderung — Mitarbeiter-Leistungsbeurteilung"',
         'ja':    'alt="昇進 — 従業員業績評価"',
@@ -492,7 +788,11 @@ STRINGS = {
         'zh-TW': 'alt="晉升 — 員工績效考核"',
         'pt-BR': 'alt="Promoção — Avaliação de Desempenho do Funcionário"',
         'ru':    'alt="Повышение — Оценка работы сотрудника"',
-    },
+        'ko': 'alt="승진 — 직원 성과 평가"',
+        'es-MX': 'alt="Promoción — Evaluación de Desempeño del Empleado"',
+        'es-ES': 'alt="Promoción — Evaluación de Desempeño del Empleado"',
+        'fr-FR': 'alt="Promotion — Évaluation de Performance de l\'Employé"',
+},
 }
 
 # Language picker HTML — gets injected into <nav>'s <ul>.
@@ -513,10 +813,44 @@ PICKER_CSS = '''
   nav ul li a { font-size: 11px; }
 '''
 
+_PICKER_SENTINEL = '<li style="margin-left: auto; opacity: 0.6;">|</li>'
+
+
+def _strip_existing_picker(html):
+    """Remove a previously-injected language picker (sentinel li → matching </ul>)
+    so re-runs of the localizer don't compound. Idempotent: a no-op if no picker
+    is present."""
+    nav_start = html.find('<nav>')
+    if nav_start < 0:
+        return html
+    sentinel_idx = html.find(_PICKER_SENTINEL, nav_start)
+    if sentinel_idx < 0:
+        return html
+    ul_close = html.find('</ul>', sentinel_idx)
+    if ul_close < 0:
+        return html
+    # Walk back to a clean line break before the sentinel so we don't leave
+    # trailing whitespace from a prior injection.
+    start = sentinel_idx
+    while start > 0 and html[start - 1] in ' \t':
+        start -= 1
+    return html[:start] + html[ul_close:]
+
+
+def _strip_existing_picker_css(html):
+    """Remove every prior PICKER_CSS block so re-runs don't accumulate dupes."""
+    while PICKER_CSS in html:
+        html = html.replace(PICKER_CSS, '', 1)
+    return html
+
+
 def localize(content, lang):
     out = content
-    # html lang attribute
-    out = out.replace('<html lang="en">', f'<html lang="{lang}">')
+    # Strip prior picker artifacts so re-runs are idempotent.
+    out = _strip_existing_picker(out)
+    out = _strip_existing_picker_css(out)
+    # html lang attribute (handle prior runs that already replaced "en" with another code)
+    out = re.sub(r'<html lang="[^"]+">', f'<html lang="{lang}">', out, count=1)
     # apply translations
     for src, table in STRINGS.items():
         if lang in table:
