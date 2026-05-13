@@ -407,11 +407,13 @@
     background: #000;
     margin-bottom: 32px;
   }
-  .trailer-frame video {
+  .trailer-frame video,
+  .trailer-frame iframe {
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
   }
   .screenshots-grid {
     display: grid;
@@ -787,9 +789,10 @@
 
   <div class="trailer-label">&gt; 体験版告知トレーラー</div>
   <div class="trailer-frame">
-    <video controls preload="metadata">
-      <source src="images/Demo_Announcement_Trailer.mov" type="video/quicktime">
-    </video>
+    <iframe src="https://www.youtube.com/embed/jdo9JpBmtEE"
+            title="Remain At Your Desk — Demo Announcement Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
   </div>
 
   <div class="screenshots-grid">
