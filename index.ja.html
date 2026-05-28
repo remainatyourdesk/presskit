@@ -160,6 +160,35 @@
     color: var(--gold);
     font-weight: 600;
   }
+  .festivals {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .festivals .festivals-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--cyan-dim);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .festival-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 3px 0;
+    color: var(--text);
+  }
+  .festival-name {
+    color: var(--cyan);
+    min-width: 240px;
+  }
+  .festival-dates {
+    color: var(--gold);
+    font-weight: 500;
+  }
   .hero-buttons {
     display: flex;
     gap: 10px;
@@ -677,6 +706,18 @@
     <a href="https://store.steampowered.com/app/4546470/Remain_At_Your_Desk/" target="_blank" class="btn btn-cta">STEAMでウィッシュリストに追加 &rsaquo;</a>
     <a href="https://youtu.be/2_WBui5f6OM" target="_blank" class="btn btn-outline">トレーラー再生 &rsaquo;</a>
     <a href="#capsules" class="btn btn-ghost">素材を見る</a>
+  </div>
+
+  <div class="festivals">
+    <div class="festivals-label">&gt; STEAM の今後のイベント</div>
+    <div class="festival-item">
+      <span class="festival-name">Steam Cyberpunk Fest</span>
+      <span class="festival-dates">2026年8月3日〜10日</span>
+    </div>
+    <div class="festival-item">
+      <span class="festival-name">Steam Programming Fest</span>
+      <span class="festival-dates">2026年9月10日〜14日</span>
+    </div>
   </div>
 </div>
 
