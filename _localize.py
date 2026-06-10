@@ -7,7 +7,7 @@ supported language with translated copy. Run from the press-kit repo root:
 """
 import re, os, sys
 
-LANGS = ['de', 'ja', 'zh-CN', 'zh-TW', 'pt-BR', 'ru', 'ko', 'es-MX', 'es-ES', 'fr-FR', 'vi', 'pl']
+LANGS = ['de', 'ja', 'zh-CN', 'zh-TW', 'pt-BR', 'ru', 'ko', 'es-MX', 'es-ES', 'fr-FR', 'vi', 'pl', 'it']
 
 # Native-language label for the language picker
 LANG_LABELS = {
@@ -24,6 +24,7 @@ LANG_LABELS = {
     'fr-FR':    'FR',
     'vi':    'VI',
     'pl':    'PL',
+    'it':    'IT',
 }
 
 # All translatable strings. Keys map to en→target by direct substring replacement.
@@ -43,6 +44,7 @@ STRINGS = {
         'fr-FR': 'Remain At Your Desk — Dossier de Presse | Crunch Moonkiss Studios',
         'vi':    'Remain At Your Desk — Hồ Sơ Báo Chí | Crunch Moonkiss Studios',
 'pl':    'Remain At Your Desk — Press Kit | Crunch Moonkiss Studios',
+        'it':    'Remain At Your Desk — Kit Stampa | Crunch Moonkiss Studios',
 },
 
     # ─── Nav ───
@@ -59,6 +61,7 @@ STRINGS = {
         'fr-FR': '<div class="logo">DOSSIER DE PRESSE</div>',
         'vi':    '<div class="logo">HỒ SƠ BÁO CHÍ</div>',
 'pl':    '<div class="logo">PRESS KIT</div>',
+        'it':    '<div class="logo">KIT STAMPA</div>',
 },
     '<a href="#about">About</a>': {
         'de': '<a href="#about">Über</a>', 'ja': '<a href="#about">概要</a>',
@@ -70,6 +73,7 @@ STRINGS = {
         'fr-FR': '<a href="#about">À propos</a>',
         'vi':    '<a href="#about">Giới thiệu</a>',
 'pl':    '<a href="#about">O grze</a>',
+        'it':    '<a href="#about">Informazioni</a>',
 },
     '<a href="#capsules">Assets</a>': {
         'de': '<a href="#capsules">Assets</a>', 'ja': '<a href="#capsules">素材</a>',
@@ -81,6 +85,7 @@ STRINGS = {
         'fr-FR': '<a href="#capsules">Ressources</a>',
         'vi':    '<a href="#capsules">Tài nguyên</a>',
 'pl':    '<a href="#capsules">Zasoby</a>',
+        'it':    '<a href="#capsules">Risorse</a>',
 },
     '<a href="#media">Media</a>': {
         'de': '<a href="#media">Medien</a>', 'ja': '<a href="#media">メディア</a>',
@@ -92,6 +97,7 @@ STRINGS = {
         'fr-FR': '<a href="#media">Médias</a>',
         'vi':    '<a href="#media">Truyền thông</a>',
 'pl':    '<a href="#media">Media</a>',
+        'it':    '<a href="#media">Media</a>',
 },
     '<a href="#press">Press</a>': {
         'de': '<a href="#press">Presse</a>', 'ja': '<a href="#press">掲載情報</a>',
@@ -103,6 +109,7 @@ STRINGS = {
         'fr-FR': '<a href="#press">Presse</a>',
         'vi':    '<a href="#press">Báo chí</a>',
 'pl':    '<a href="#press">Prasa</a>',
+        'it':    '<a href="#press">Stampa</a>',
 },
     '<a href="#team">Developer</a>': {
         'de': '<a href="#team">Entwickler</a>', 'ja': '<a href="#team">開発者</a>',
@@ -114,6 +121,7 @@ STRINGS = {
         'fr-FR': '<a href="#team">Développeur</a>',
         'vi':    '<a href="#team">Nhà phát triển</a>',
 'pl':    '<a href="#team">Twórca</a>',
+        'it':    '<a href="#team">Sviluppatore</a>',
 },
     '<a href="#contact">Contact</a>': {
         'de': '<a href="#contact">Kontakt</a>', 'ja': '<a href="#contact">連絡先</a>',
@@ -125,6 +133,7 @@ STRINGS = {
         'fr-FR': '<a href="#contact">Contact</a>',
         'vi':    '<a href="#contact">Liên hệ</a>',
 'pl':    '<a href="#contact">Kontakt</a>',
+        'it':    '<a href="#contact">Contatti</a>',
 },
 
     # ─── Hero ───
@@ -141,6 +150,7 @@ STRINGS = {
         'fr-FR': '&gt; DOSSIER DE PRESSE — CRUNCH MOONKISS STUDIOS',
         'vi':    '&gt; HỒ SƠ BÁO CHÍ — CRUNCH MOONKISS STUDIOS',
 'pl':    '&gt; PRESS KIT — CRUNCH MOONKISS STUDIOS',
+        'it':    '&gt; KIT STAMPA — CRUNCH MOONKISS STUDIOS',
 },
     '<div class="subtitle">Cyberpunk Incremental Clicker</div>': {
         'de':    '<div class="subtitle">Cyberpunk Incremental Clicker</div>',
@@ -155,6 +165,7 @@ STRINGS = {
         'fr-FR': '<div class="subtitle">Clicker Incrémental Cyberpunk</div>',
         'vi':    '<div class="subtitle">Clicker Incremental Cyberpunk</div>',
 'pl':    '<div class="subtitle">Cyberpunkowy Incremental Clicker</div>',
+        'it':    '<div class="subtitle">Clicker Incrementale Cyberpunk</div>',
 },
     '<div class="label">Developer</div>': {
         'de': '<div class="label">Entwickler</div>', 'ja': '<div class="label">開発者</div>',
@@ -166,6 +177,7 @@ STRINGS = {
         'fr-FR': '<div class="label">Développeur</div>',
         'vi':    '<div class="label">Nhà phát triển</div>',
 'pl':    '<div class="label">Twórca</div>',
+        'it':    '<div class="label">Sviluppatore</div>',
 },
     '<div class="label">Platform</div>': {
         'de': '<div class="label">Plattform</div>', 'ja': '<div class="label">プラットフォーム</div>',
@@ -177,6 +189,7 @@ STRINGS = {
         'fr-FR': '<div class="label">Plateforme</div>',
         'vi':    '<div class="label">Nền tảng</div>',
 'pl':    '<div class="label">Platforma</div>',
+        'it':    '<div class="label">Piattaforma</div>',
 },
     '<div class="label">Genre</div>': {
         'de': '<div class="label">Genre</div>', 'ja': '<div class="label">ジャンル</div>',
@@ -188,6 +201,7 @@ STRINGS = {
         'fr-FR': '<div class="label">Genre</div>',
         'vi':    '<div class="label">Thể loại</div>',
 'pl':    '<div class="label">Gatunek</div>',
+        'it':    '<div class="label">Genere</div>',
 },
     '<div class="label">Demo</div>': {
         'de': '<div class="label">Demo</div>', 'ja': '<div class="label">体験版</div>',
@@ -199,6 +213,7 @@ STRINGS = {
         'fr-FR': '<div class="label">Démo</div>',
         'vi':    '<div class="label">Demo</div>',
 'pl':    '<div class="label">Demo</div>',
+        'it':    '<div class="label">Demo</div>',
 },
     '<div class="label">Full Release</div>': {
         'de': '<div class="label">Vollversion</div>', 'ja': '<div class="label">フルリリース</div>',
@@ -210,6 +225,7 @@ STRINGS = {
         'fr-FR': '<div class="label">Version Complète</div>',
         'vi':    '<div class="label">Phát hành chính thức</div>',
 'pl':    '<div class="label">Pełna premiera</div>',
+        'it':    '<div class="label">Uscita Completa</div>',
 },
     '<div class="value demo-date">May 19, 2026</div>': {
         'de':    '<div class="value demo-date">19. Mai 2026</div>',
@@ -224,6 +240,7 @@ STRINGS = {
         'fr-FR': '<div class="value demo-date">19 mai 2026</div>',
         'vi':    '<div class="value demo-date">19 tháng 5, 2026</div>',
 'pl':    '<div class="value demo-date">19 maja 2026</div>',
+        'it':    '<div class="value demo-date">19 maggio 2026</div>',
 },
     '<div class="value">Cyberpunk Incremental Clicker</div>': {
         'de':    '<div class="value">Cyberpunk Incremental Clicker</div>',
@@ -238,6 +255,7 @@ STRINGS = {
         'fr-FR': '<div class="value">Clicker Incrémental Cyberpunk</div>',
         'vi':    '<div class="value">Clicker Incremental Cyberpunk</div>',
 'pl':    '<div class="value">Cyberpunkowy Incremental Clicker</div>',
+        'it':    '<div class="value">Clicker Incrementale Cyberpunk</div>',
 },
     '<div class="value">Late 2026</div>': {
         'de': '<div class="value">Ende 2026</div>', 'ja': '<div class="value">2026年後半</div>',
@@ -249,6 +267,7 @@ STRINGS = {
         'fr-FR': '<div class="value">Fin 2026</div>',
         'vi':    '<div class="value">Cuối 2026</div>',
 'pl':    '<div class="value">Koniec 2026</div>',
+        'it':    '<div class="value">Fine 2026</div>',
 },
     # ─── Festivals strip ───
     '<div class="festivals-label">&gt; UPCOMING ON STEAM</div>': {
@@ -264,6 +283,7 @@ STRINGS = {
         'fr-FR': '<div class="festivals-label">&gt; PROCHAINEMENT SUR STEAM</div>',
         'vi':    '<div class="festivals-label">&gt; SẮP DIỄN RA TRÊN STEAM</div>',
 'pl':    '<div class="festivals-label">&gt; NADCHODZĄCE NA STEAM</div>',
+        'it':    '<div class="festivals-label">&gt; PROSSIMAMENTE SU STEAM</div>',
 },
     '<span class="festival-dates">August 3&ndash;10, 2026</span>': {
         'de':    '<span class="festival-dates">3.&ndash;10. August 2026</span>',
@@ -278,6 +298,7 @@ STRINGS = {
         'fr-FR': '<span class="festival-dates">3&ndash;10 août 2026</span>',
         'vi':    '<span class="festival-dates">3&ndash;10 tháng 8, 2026</span>',
 'pl':    '<span class="festival-dates">3&ndash;10 sierpnia 2026</span>',
+        'it':    '<span class="festival-dates">3&ndash;10 agosto 2026</span>',
 },
     '<span class="festival-dates">September 10&ndash;14, 2026</span>': {
         'de':    '<span class="festival-dates">10.&ndash;14. September 2026</span>',
@@ -292,6 +313,7 @@ STRINGS = {
         'fr-FR': '<span class="festival-dates">10&ndash;14 septembre 2026</span>',
         'vi':    '<span class="festival-dates">10&ndash;14 tháng 9, 2026</span>',
 'pl':    '<span class="festival-dates">10&ndash;14 września 2026</span>',
+        'it':    '<span class="festival-dates">10&ndash;14 settembre 2026</span>',
 },
     'WATCH TRAILER &rsaquo;': {
         'de': 'TRAILER ANSEHEN &rsaquo;', 'ja': 'トレーラー再生 &rsaquo;',
@@ -303,6 +325,7 @@ STRINGS = {
         'fr-FR': 'VOIR LA BANDE-ANNONCE &rsaquo;',
         'vi':    'XEM TRAILER &rsaquo;',
 'pl':    'OBEJRZYJ TRAILER &rsaquo;',
+        'it':    'GUARDA IL TRAILER &rsaquo;',
 },
     'VIEW ASSETS': {
         'de': 'ASSETS ANSEHEN', 'ja': '素材を見る',
@@ -314,6 +337,7 @@ STRINGS = {
         'fr-FR': 'VOIR LES RESSOURCES',
         'vi':    'XEM TÀI NGUYÊN',
 'pl':    'ZOBACZ ZASOBY',
+        'it':    'VEDI LE RISORSE',
 },
     'WISHLIST ON STEAM &rsaquo;': {
         'de': 'AUF STEAM AUF WUNSCHLISTE &rsaquo;', 'ja': 'STEAMでウィッシュリストに追加 &rsaquo;',
@@ -325,6 +349,7 @@ STRINGS = {
         'fr-FR': 'AJOUTER À LA LISTE DE SOUHAITS STEAM &rsaquo;',
         'vi':    'THÊM VÀO DANH SÁCH MONG MUỐN STEAM &rsaquo;',
 'pl':    'DODAJ DO LISTY ŻYCZEŃ NA STEAM &rsaquo;',
+        'it':    'AGGIUNGI ALLA LISTA DEI DESIDERI SU STEAM &rsaquo;',
 },
 
     # ─── About ───
@@ -338,6 +363,7 @@ STRINGS = {
         'fr-FR': '<h2>À propos du jeu</h2>',
         'vi':    '<h2>Về Trò Chơi</h2>',
 'pl':    '<h2>O Grze</h2>',
+        'it':    '<h2>Informazioni sul Gioco</h2>',
 },
     '<p class="about-lede">You have <span class="twojobs">two jobs</span>. <em>One is fake.</em></p>': {
         'de':    '<p class="about-lede">Du hast <span class="twojobs">zwei Jobs</span>. <em>Einer ist gefälscht.</em></p>',
@@ -352,6 +378,7 @@ STRINGS = {
         'fr-FR': '<p class="about-lede">Tu as <span class="twojobs">deux boulots</span>. <em>L\'un est bidon.</em></p>',
         'vi':    '<p class="about-lede">Bạn có <span class="twojobs">hai công việc</span>. <em>Một là giả.</em></p>',
 'pl':    '<p class="about-lede">Masz <span class="twojobs">dwie prace</span>. <em>Jedna jest fałszywa.</em></p>',
+        'it':    '<p class="about-lede">Hai <span class="twojobs">due lavori</span>. <em>Uno è finto.</em></p>',
 },
     '<p>The first is fake. You click through tasks, file reports, sync databases, and collect a paycheck. Nobody knows what you actually do. You just need to look busy enough to get promoted.</p>': {
         'de':    '<p>Der erste ist fake. Du klickst dich durch Aufgaben, reichst Berichte ein, synchronisierst Datenbanken und kassierst dein Gehalt. Niemand weiß, was du wirklich tust. Du musst nur beschäftigt genug aussehen, um befördert zu werden.</p>',
@@ -366,6 +393,7 @@ STRINGS = {
         'fr-FR': "<p>Le premier est bidon. Tu cliques sur des tâches, tu déposes des rapports, tu synchronises des bases de données, et tu touches ton salaire. Personne ne sait ce que tu fais vraiment. Tu dois juste avoir l'air assez occupé pour être promu.</p>",
         'vi':    '<p>Công việc đầu tiên là giả. Bạn click qua các nhiệm vụ, nộp báo cáo, đồng bộ cơ sở dữ liệu, và lãnh lương. Không ai biết bạn thật sự làm gì. Bạn chỉ cần trông có vẻ bận đủ để được thăng chức.</p>',
 'pl':    '<p>Pierwsza jest fałszywa. Klikasz przez zadania, składasz raporty, synchronizujesz bazy danych i zbierasz wypłatę. Nikt nie wie, czym się naprawdę zajmujesz. Musisz tylko wyglądać wystarczająco zajęty, by dostać awans.</p>',
+        'it':    '<p>Il primo è finto. Clicchi tra le mansioni, archivi report, sincronizzi database e incassi lo stipendio. Nessuno sa cosa fai davvero. Devi solo sembrare abbastanza occupato da farti promuovere.</p>',
 },
     '<p>The second job is the real one. After hours, you break into the corporate network to pull data that isn\'t yours. You route through systems, crack firewalls, stay ahead of whoever\'s paying attention.</p>': {
         'de':    '<p>Der zweite Job ist der echte. Nach Feierabend dringst du ins Firmennetzwerk ein, um Daten zu holen, die dir nicht gehören. Du routest durch Systeme, knackst Firewalls und bleibst denen voraus, die aufpassen.</p>',
@@ -380,6 +408,7 @@ STRINGS = {
         'fr-FR': "<p>Le second boulot est le vrai. Après les heures, tu pénètres dans le réseau de l'entreprise pour extraire des données qui ne t'appartiennent pas. Tu passes par les systèmes, tu craques les pare-feu, tu gardes une longueur d'avance sur ceux qui surveillent.</p>",
         'vi':    '<p>Công việc thứ hai mới là thật. Sau giờ làm, bạn xâm nhập vào mạng nội bộ công ty để rút những dữ liệu không thuộc về mình. Bạn định tuyến qua các hệ thống, phá tường lửa, đi trước những kẻ đang theo dõi.</p>',
 'pl':    '<p>Druga praca jest prawdziwa. Po godzinach włamujesz się do sieci korporacyjnej, by wyciągnąć dane, które nie należą do ciebie. Trasujesz przez systemy, łamiesz firewalle, wyprzedzasz tych, którzy zwracają uwagę.</p>',
+        'it':    "<p>Il secondo lavoro è quello vero. Fuori orario, ti infiltri nella rete aziendale per sottrarre dati che non ti appartengono. Attraversi i sistemi, forzi i firewall, resti un passo avanti a chi ti tiene d'occhio.</p>",
 },
     # Boilerplate label is now a CSS-rendered ::before that reads from
     # data-label on .about-callout — swap the attribute value per language.
@@ -396,6 +425,7 @@ STRINGS = {
         'fr-FR': 'data-label="TEXTE OFFICIEL"',
         'vi':    'data-label="MÔ TẢ CHÍNH THỨC"',
 'pl':    'data-label="OFICJALNY OPIS"',
+        'it':    'data-label="DESCRIZIONE UFFICIALE"',
 },
     '<p><em>Remain at Your Desk</em> is a cyberpunk incremental clicker with two jobs. By day you click tasks and get promoted. By night you hack the corporate network, manage suspicion, switch personas, and pull data that isn\'t yours. Get caught and start over with nothing.</p>': {
         'de':    '<p><em>Remain at Your Desk</em> ist ein Cyberpunk Incremental Clicker mit zwei Jobs. Tagsüber klickst du Aufgaben und wirst befördert. Nachts hackst du das Firmennetzwerk, kontrollierst den Verdacht, wechselst Personas und ziehst Daten, die dir nicht gehören. Lass dich erwischen und du fängst mit nichts wieder an.</p>',
@@ -410,6 +440,7 @@ STRINGS = {
         'fr-FR': "<p><em>Remain at Your Desk</em> est un clicker incrémental cyberpunk avec deux boulots. Le jour tu cliques sur des tâches et tu es promu. La nuit tu pirates le réseau de l'entreprise, tu gères la suspicion, tu changes de persona, et tu extrais des données qui ne t'appartiennent pas. Tu te fais prendre et tu repars à zéro.</p>",
         'vi':    '<p><em>Remain at Your Desk</em> là một game cyberpunk incremental clicker với hai công việc. Ban ngày bạn click nhiệm vụ và được thăng chức. Ban đêm bạn hack mạng nội bộ mà đáng lẽ bạn phải bảo vệ. Rủi ro đổi phần thưởng, nghi ngờ đổi tiến độ, và một AI trong hệ thống đã theo dõi lâu hơn bạn nghĩ.</p>',
 'pl':    '<p><em>Remain at Your Desk</em> to cyberpunkowy incremental clicker z dwiema pracami. Za dnia klikasz zadania i awansujesz. W nocy hakujesz sieć korporacyjną, zarządzasz podejrzliwością, zmieniasz persony i wyciągasz dane, które nie należą do ciebie. Daj się złapać, a zaczynasz od nowa bez niczego.</p>',
+        'it':    '<p><em>Remain at Your Desk</em> è un clicker incrementale cyberpunk con due lavori. Di giorno clicchi le mansioni e vieni promosso. Di notte hackeri la rete aziendale, gestisci il sospetto, cambi identità e sottrai dati che non ti appartengono. Fatti beccare e ricominci da zero.</p>',
 },
 
     # ─── Feature blocks ───
@@ -423,6 +454,7 @@ STRINGS = {
         'fr-FR': '<span class="term">Risque</span>',
         'vi':    '<span class="term">Rủi ro</span>',
 'pl':    '<span class="term">Ryzyko</span>',
+        'it':    '<span class="term">Rischio</span>',
 },
     '<p>Every hack raises suspicion. Push too far and security starts paying attention. An audit lands on your desk and then an interrogation follows. If your story doesn\'t hold, you\'re back to Intern with nothing.</p>': {
         'de':    '<p>Jeder Hack erhöht den Verdacht. Übertreib es und die Sicherheit beginnt aufzupassen. Ein Audit landet auf deinem Schreibtisch und dann folgt ein Verhör. Wenn deine Geschichte nicht hält, bist du wieder Praktikant mit nichts.</p>',
@@ -437,6 +469,7 @@ STRINGS = {
         'fr-FR': '<p>Chaque piratage augmente la suspicion. Pousse trop loin et la sécurité commence à faire attention. Un audit atterrit sur ton bureau et un interrogatoire suit. Si ton histoire ne tient pas, tu retournes Stagiaire sans rien.</p>',
         'vi':    '<p>Mỗi lần hack đều làm tăng nghi ngờ. Đi quá xa thì bộ phận an ninh sẽ chú ý. Một cuộc kiểm toán đáp xuống bàn bạn, rồi đến một cuộc thẩm vấn. Nghi ngờ giảm dần khi bạn click công việc ban ngày, nên cày corporate chính là thời gian hồi cho phần chơi thật sự thú vị.</p>',
 'pl':    '<p>Każdy hack podnosi podejrzliwość. Pchaj za daleko, a ochrona zacznie się interesować. Audyt ląduje na twoim biurku, a po nim następuje przesłuchanie. Jeśli twoja historia się nie trzyma, wracasz na staż bez niczego.</p>',
+        'it':    '<p>Ogni hack aumenta il sospetto. Se esageri, la sicurezza inizia a farci caso. Un audit ti arriva sulla scrivania e poi segue un interrogatorio. Se la tua versione non regge, torni a fare lo Stagista senza niente.</p>',
 },
     '<span class="term">Two Economies</span>': {
         'de': '<span class="term">Zwei Ökonomien</span>', 'ja': '<span class="term">二つの経済</span>',
@@ -448,6 +481,7 @@ STRINGS = {
         'fr-FR': '<span class="term">Deux Économies</span>',
         'vi':    '<span class="term">Hai Nền Kinh Tế</span>',
 'pl':    '<span class="term">Dwie Ekonomie</span>',
+        'it':    '<span class="term">Due Economie</span>',
 },
     '<p>Credits come from the day job. They buy upgrades, automation, and time. Intel comes from hacks. Intel only drops on hacks, so there\'s less of it than credits and you have to take more risk to get it. It feeds its own upgrade tree, and those upgrades make every hack after faster and deadlier. Climb a rank and the BLACK MARKET opens &mdash; intel buys permanent edges there, the kind that survive every reset.</p>': {
         'de':    '<p>Credits kommen vom Tagesjob. Sie kaufen Upgrades, Automatisierung und Zeit. Intel kommt von Hacks. Intel droppt nur durch Hacks, davon gibt es weniger als Credits und du musst mehr Risiko eingehen. Es speist seinen eigenen Upgrade-Baum, und diese Upgrades machen jeden weiteren Hack schneller und tödlicher. Steig einen Rang auf und der BLACK MARKET öffnet sich &mdash; Intel kauft dort permanente Vorteile, die jeden Reset überleben.</p>',
@@ -462,6 +496,7 @@ STRINGS = {
         'fr-FR': "<p>Les crédits viennent du boulot de jour. Ils achètent des améliorations, de l'automatisation et du temps. L'intel vient des piratages. L'intel ne tombe qu'avec les hacks, donc il y en a moins que de crédits et tu dois prendre plus de risques pour l'obtenir. Il alimente son propre arbre d'améliorations, et ces améliorations rendent chaque hack suivant plus rapide et plus mortel. Monte d'un rang et le BLACK MARKET ouvre &mdash; l'intel y achète des avantages permanents, du genre qui survivent à chaque reset.</p>",
         'vi':    '<p>Tín dụng đến từ công việc ban ngày. Chúng dùng để mua nâng cấp, tự động hoá, và thời gian. Thông tin đến từ hack. Thông tin chỉ rơi khi hack, nên ít thứ để tích trữ và nhiều thứ để chi tiêu có chủ đích cho mục tiêu lớn. Hai nền kinh tế kéo nhau ngược chiều.</p>',
 'pl':    '<p>Kredyty pochodzą z pracy za dnia. Kupują ulepszenia, automatyzację i czas. Intel pochodzi z hacków. Intel zrzucają tylko hacki, więc jest go mniej niż kredytów i musisz podjąć większe ryzyko, by go zdobyć. Zasila własne drzewko ulepszeń, a te ulepszenia czynią każdy kolejny hack szybszym i bardziej zabójczym. Awansuj, a otworzy się CZARNY RYNEK &mdash; intel kupuje tam stałe przewagi, takie, które przetrwają każdy reset.</p>',
+        'it':    "<p>I crediti vengono dal lavoro diurno. Servono per potenziamenti, automazione e tempo. L'intel viene dagli hack. L'intel cade solo con gli hack, quindi ce n'è meno dei crediti e devi rischiare di più per ottenerlo. Alimenta il proprio albero di potenziamenti, e quei potenziamenti rendono ogni hack successivo più veloce e letale. Sali di rango e si apre il BLACK MARKET &mdash; lì l'intel compra vantaggi permanenti, di quelli che sopravvivono a ogni reset.</p>",
 },
     '<span class="term">Cover</span>': {
         'de': '<span class="term">Tarnung</span>', 'ja': '<span class="term">カバー</span>',
@@ -473,6 +508,7 @@ STRINGS = {
         'fr-FR': '<span class="term">Couverture</span>',
         'vi':    '<span class="term">Vỏ Bọc</span>',
 'pl':    '<span class="term">Przykrywka</span>',
+        'it':    '<span class="term">Copertura</span>',
 },
     '<p>Personas let you hack as someone else. The janitor, the IT admin, the consultant nobody questions. Each has its own bonuses but wears out if you lean on it too hard. If suspicion creeps up, you file a fake report, wipe the logs, or pay someone to forget they saw you.</p>': {
         'de':    '<p>Personas lassen dich als jemand anderes hacken. Der Hausmeister, der IT-Admin, der Berater, den niemand hinterfragt. Jede hat eigene Boni, nutzt sich aber ab, wenn du sie zu sehr beanspruchst. Steigt der Verdacht, reichst du einen gefälschten Bericht ein, löschst Logs oder bezahlst jemanden, dich zu vergessen.</p>',
@@ -487,6 +523,7 @@ STRINGS = {
         'fr-FR': "<p>Les personas te permettent de pirater en tant que quelqu'un d'autre. Le concierge, l'admin IT, le consultant que personne ne questionne. Chacune a ses propres bonus mais s'use si tu t'y appuies trop fort. Si la suspicion monte, tu déposes un faux rapport, tu effaces les logs, ou tu payes quelqu'un pour oublier qu'il t'a vu.</p>",
         'vi':    '<p>Nhân dạng cho phép bạn hack với danh tính người khác. Người lao công, IT admin, chuyên viên tư vấn không ai nghi ngờ. Mỗi loại có lợi ích riêng nhưng dần hao mòn nếu bạn dùng quá nhiều. Nếu nghi ngờ tăng lên, bạn nộp một báo cáo giả, xoá log, hoặc trả tiền để ai đó quên là đã thấy bạn.</p>',
 'pl':    '<p>Persony pozwalają ci hakować jako ktoś inny. Dozorca, admin IT, konsultant, którego nikt nie kwestionuje. Każda ma własne bonusy, ale wypala się, jeśli polegasz na niej za mocno. Jeśli podejrzliwość rośnie, składasz fałszywy raport, czyścisz logi albo płacisz komuś, by zapomniał, że cię widział.</p>',
+        'it':    "<p>Le identità ti permettono di hackerare nei panni di qualcun altro. Il custode, l'admin IT, il consulente che nessuno mette in dubbio. Ognuna ha i suoi bonus ma si logora se ci si appoggia troppo. Se il sospetto sale, presenti un report falso, cancelli i log o paghi qualcuno perché dimentichi di averti visto.</p>",
 },
     '<div class="head">Leverage</div>': {
         'de': '<div class="head">Druckmittel</div>', 'ja': '<div class="head">レバレッジ</div>',
@@ -498,6 +535,7 @@ STRINGS = {
         'fr-FR': '<div class="head">Levier</div>',
         'vi':    '<div class="head">Đòn Bẩy</div>',
 'pl':    '<div class="head">Dźwignia</div>',
+        'it':    '<div class="head">Leva</div>',
 },
     '<p>Not everything is worth selling. Hack the same target enough times and you build a dossier. This creates permanent leverage that survives resets. The email server shows you who hates who. The security network shows you where the cameras are not. Executive files show you how the system really works.</p>': {
         'de':    '<p>Nicht alles ist es wert verkauft zu werden. Hacke dasselbe Ziel oft genug und du baust ein Dossier auf. Das erschafft permanente Druckmittel, die Resets überleben. Der E-Mail-Server zeigt dir, wer wen hasst. Das Sicherheitsnetzwerk zeigt dir, wo die Kameras nicht sind. Vorstands-Dateien zeigen dir, wie das System wirklich funktioniert.</p>',
@@ -512,6 +550,7 @@ STRINGS = {
         'fr-FR': "<p>Tout ne vaut pas la peine d'être vendu. Pirate la même cible assez de fois et tu montes un dossier. Cela crée un levier permanent qui survit aux resets. Le serveur mail te montre qui déteste qui. Le réseau de sécurité te montre où les caméras ne sont pas. Les fichiers de la direction te montrent comment le système fonctionne vraiment.</p>",
         'vi':    '<p>Không phải thứ gì cũng nên bán. Hack đủ nhiều lần cùng một mục tiêu và bạn xây được một hồ sơ. Điều này tạo ra đòn bẩy vĩnh viễn sống sót qua kiểm toán, sa thải, và cả prestige reset.</p>',
 'pl':    '<p>Nie wszystko warto sprzedawać. Zhakuj ten sam cel wystarczająco wiele razy, a zbudujesz dossier. Tworzy to stałą dźwignię, która przetrwa resety. Serwer pocztowy pokazuje ci, kto kogo nienawidzi. Sieć bezpieczeństwa pokazuje, gdzie nie ma kamer. Pliki zarządu pokazują, jak system naprawdę działa.</p>',
+        'it':    '<p>Non tutto vale la pena di essere venduto. Hackera lo stesso bersaglio abbastanza volte e costruisci un dossier. Questo crea una leva permanente che sopravvive ai reset. Il server email ti mostra chi odia chi. La rete di sicurezza ti mostra dove le telecamere non arrivano. I file dei dirigenti ti mostrano come funziona davvero il sistema.</p>',
 },
     '<div class="head">Prestige</div>': {
         'de': '<div class="head">Prestige</div>', 'ja': '<div class="head">プレステージ</div>',
@@ -523,6 +562,7 @@ STRINGS = {
         'fr-FR': '<div class="head">Prestige</div>',
         'vi':    '<div class="head">Thăng Tiến</div>',
 'pl':    '<div class="head">Prestige</div>',
+        'it':    '<div class="head">Prestigio</div>',
 },
 
     # New CONDUIT feature card (3rd in triple row).
@@ -539,6 +579,7 @@ STRINGS = {
         'fr-FR': '<div class="head">CONDUIT</div>',
         'vi':    '<div class="head">ỐNG DẪN</div>',
 'pl':    '<div class="head">KANAŁ</div>',
+        'it':    '<div class="head">CONDUIT</div>',
 },
     "<p>There's something already inside the network. It noticed you first. It will speak to you eventually. What it tells you is the real plot of the game.</p>": {
         'de': '<p>Es ist schon etwas im Netzwerk drin. Es hat dich zuerst bemerkt. Irgendwann wird es mit dir reden. Was es dir sagt, ist die eigentliche Handlung des Spiels.</p>',
@@ -553,6 +594,7 @@ STRINGS = {
         'fr-FR': '<p>Quelque chose est déjà à l\'intérieur du réseau. C\'est lui qui t\'a remarqué en premier. Tôt ou tard, il va te parler. Ce qu\'il te dira, c\'est la vraie intrigue du jeu.</p>',
         'vi':    '<p>Có thứ gì đó đã ở sẵn trong mạng. Nó để ý bạn trước. Cuối cùng nó sẽ nói chuyện với bạn. Nó muốn bạn làm gì — và nó thật sự là gì — tuỳ vào cách bạn đã chơi.</p>',
         'pl':    '<p>W sieci już coś jest. To ono zauważyło cię pierwsze. Prędzej czy później do ciebie przemówi. To, co ci powie, jest prawdziwą fabułą gry.</p>',
+        'it':    "<p>C'è già qualcosa dentro la rete. Ti ha notato per primo. Prima o poi ti parlerà. Quello che ti dice è la vera trama del gioco.</p>",
 },
     '<p>Get promoted and you start over with stronger multipliers and personas that stick. Get caught and you start over with nothing.</p>': {
         'de':    '<p>Lass dich befördern und du startest neu mit stärkeren Multiplikatoren und bleibenden Personas. Lass dich erwischen und du startest neu mit nichts.</p>',
@@ -567,6 +609,7 @@ STRINGS = {
         'fr-FR': '<p>Sois promu et tu repars avec des multiplicateurs plus forts et des personas qui restent. Fais-toi prendre et tu repars sans rien.</p>',
         'vi':    '<p>Được thăng chức và bạn làm lại từ đầu với hệ số mạnh hơn và nhân dạng được giữ lại. Bị bắt và bạn làm lại từ đầu với hai bàn tay trắng.</p>',
 'pl':    '<p>Awansuj, a zaczynasz od nowa z silniejszymi mnożnikami i personami, które zostają. Daj się złapać, a zaczynasz od nowa bez niczego.</p>',
+        'it':    '<p>Fatti promuovere e ricominci con moltiplicatori più forti e identità che restano. Fatti beccare e ricominci da zero.</p>',
 },
 
     # ─── Section headers ───
@@ -580,6 +623,7 @@ STRINGS = {
         'fr-FR': '<h2>Capsule &amp; Images Clés</h2>',
         'vi':    '<h2>Capsule Art &amp; Hình Ảnh Chính</h2>',
 'pl':    '<h2>Capsule Art &amp; Kluczowe Obrazy</h2>',
+        'it':    '<h2>Capsule Art &amp; Immagini Principali</h2>',
 },
     '<h2>Capsule Art & Key Images</h2>': {
         'de': '<h2>Capsule-Art & Schlüsselbilder</h2>', 'ja': '<h2>カプセルアート & キービジュアル</h2>',
@@ -591,6 +635,7 @@ STRINGS = {
         'fr-FR': '<h2>Capsule & Images Clés</h2>',
         'vi':    '<h2>Capsule Art & Hình Ảnh Chính</h2>',
 'pl':    '<h2>Capsule Art & Kluczowe Obrazy</h2>',
+        'it':    '<h2>Capsule Art & Immagini Principali</h2>',
 },
     '<h2>Screenshots &amp; Media</h2>': {
         'de': '<h2>Screenshots &amp; Medien</h2>', 'ja': '<h2>スクリーンショット &amp; メディア</h2>',
@@ -602,6 +647,7 @@ STRINGS = {
         'fr-FR': "<h2>Captures d'écran &amp; Médias</h2>",
         'vi':    '<h2>Ảnh chụp &amp; Truyền thông</h2>',
 'pl':    '<h2>Zrzuty ekranu &amp; Media</h2>',
+        'it':    '<h2>Screenshot &amp; Media</h2>',
 },
     '<h2>Screenshots & Media</h2>': {
         'de': '<h2>Screenshots & Medien</h2>', 'ja': '<h2>スクリーンショット & メディア</h2>',
@@ -613,6 +659,7 @@ STRINGS = {
         'fr-FR': "<h2>Captures d'écran & Médias</h2>",
         'vi':    '<h2>Ảnh chụp & Truyền thông</h2>',
 'pl':    '<h2>Zrzuty ekranu & Media</h2>',
+        'it':    '<h2>Screenshot & Media</h2>',
 },
     '<h2>Featured In</h2>': {
         'de': '<h2>Erwähnt In</h2>', 'ja': '<h2>掲載メディア</h2>',
@@ -624,6 +671,7 @@ STRINGS = {
         'fr-FR': '<h2>Mentionné dans</h2>',
         'vi':    '<h2>Được Đăng Tải</h2>',
 'pl':    '<h2>Wzmiankowano w</h2>',
+        'it':    '<h2>Apparso Su</h2>',
 },
     '<h2>Developer</h2>': {
         'de': '<h2>Entwickler</h2>', 'ja': '<h2>開発者</h2>',
@@ -635,6 +683,7 @@ STRINGS = {
         'fr-FR': '<h2>Développeur</h2>',
         'vi':    '<h2>Nhà Phát Triển</h2>',
 'pl':    '<h2>Twórca</h2>',
+        'it':    '<h2>Sviluppatore</h2>',
 },
     '<h2>Contact</h2>': {
         'de': '<h2>Kontakt</h2>', 'ja': '<h2>連絡先</h2>',
@@ -646,6 +695,7 @@ STRINGS = {
         'fr-FR': '<h2>Contact</h2>',
         'vi':    '<h2>Liên Hệ</h2>',
 'pl':    '<h2>Kontakt</h2>',
+        'it':    '<h2>Contatti</h2>',
 },
 
     # ─── Capsule labels ───
@@ -659,6 +709,7 @@ STRINGS = {
         'fr-FR': 'Capsule Principale (460&times;215)',
         'vi':    'Capsule Chính (460&times;215)',
 'pl':    'Główna Capsule (460&times;215)',
+        'it':    'Capsule Principale (460&times;215)',
 },
     'Header / Library Capsule (460&times;215)': {
         'de': 'Header / Library Capsule (460&times;215)', 'ja': 'ヘッダー / ライブラリカプセル (460&times;215)',
@@ -670,6 +721,7 @@ STRINGS = {
         'fr-FR': 'Header / Capsule Bibliothèque (460&times;215)',
         'vi':    'Header / Library Capsule (460&times;215)',
 'pl':    'Header / Library Capsule (460&times;215)',
+        'it':    'Header / Library Capsule (460&times;215)',
 },
     'Hero Art (1920&times;620)': {
         'de': 'Hero-Art (1920&times;620)', 'ja': 'ヒーローアート (1920&times;620)',
@@ -681,6 +733,7 @@ STRINGS = {
         'fr-FR': 'Hero Art (1920&times;620)',
         'vi':    'Hero Art (1920&times;620)',
 'pl':    'Hero Art (1920&times;620)',
+        'it':    'Hero Art (1920&times;620)',
 },
     '4K Marketing Thumbnail (3840&times;2160)': {
         'de': '4K-Marketing-Thumbnail (3840&times;2160)', 'ja': '4Kマーケティング・サムネイル (3840&times;2160)',
@@ -692,6 +745,7 @@ STRINGS = {
         'fr-FR': 'Vignette Marketing 4K (3840&times;2160)',
         'vi':    'Hình Marketing 4K (3840&times;2160)',
 'pl':    'Marketingowy Thumbnail 4K (3840&times;2160)',
+        'it':    'Miniatura Marketing 4K (3840&times;2160)',
 },
     'Library Capsule</div>': {
         'de': 'Library Capsule</div>', 'ja': 'ライブラリカプセル</div>',
@@ -703,6 +757,7 @@ STRINGS = {
         'fr-FR': 'Capsule Bibliothèque</div>',
         'vi':    'Library Capsule</div>',
 'pl':    'Library Capsule</div>',
+        'it':    'Library Capsule</div>',
 },
     'Small Capsule (231&times;87)': {
         'de': 'Small Capsule (231&times;87)', 'ja': 'スモールカプセル (231&times;87)',
@@ -714,6 +769,7 @@ STRINGS = {
         'fr-FR': 'Petite Capsule (231&times;87)',
         'vi':    'Capsule Nhỏ (231&times;87)',
 'pl':    'Mała Capsule (231&times;87)',
+        'it':    'Capsule Piccola (231&times;87)',
 },
     'Vertical Capsule (374&times;448)': {
         'de': 'Vertical Capsule (374&times;448)', 'ja': '縦型カプセル (374&times;448)',
@@ -725,6 +781,7 @@ STRINGS = {
         'fr-FR': 'Capsule Verticale (374&times;448)',
         'vi':    'Capsule Dọc (374&times;448)',
 'pl':    'Capsule Pionowa (374&times;448)',
+        'it':    'Capsule Verticale (374&times;448)',
 },
 
     # ─── Media section ───
@@ -741,6 +798,7 @@ STRINGS = {
         'fr-FR': '&gt; Bande-Annonce d\'Annonce de la Démo',
         'vi':    '&gt; Trailer Công Bố Demo',
 'pl':    '&gt; Trailer Zapowiedzi Demo',
+        'it':    '&gt; Trailer di Annuncio della Demo',
 },
     '&gt; Launch Trailer': {
         'de': '&gt; Launch-Trailer', 'ja': '&gt; ローンチトレーラー',
@@ -752,6 +810,7 @@ STRINGS = {
         'fr-FR': '&gt; Bande-Annonce de Lancement',
         'vi':    '&gt; Trailer Ra Mắt',
 'pl':    '&gt; Trailer Premiery',
+        'it':    '&gt; Trailer di Lancio',
 },
     'CLICK TO ENLARGE': {
         'de': 'ZUM VERGRÖSSERN KLICKEN', 'ja': 'クリックで拡大',
@@ -763,6 +822,7 @@ STRINGS = {
         'fr-FR': 'CLIQUER POUR AGRANDIR',
         'vi':    'CLICK ĐỂ PHÓNG TO',
 'pl':    'KLIKNIJ, BY POWIĘKSZYĆ',
+        'it':    'CLICCA PER INGRANDIRE',
 },
     'DOWNLOAD ALL ASSETS (.ZIP)': {
         'de': 'ALLE ASSETS HERUNTERLADEN (.ZIP)', 'ja': '全素材ダウンロード (.ZIP)',
@@ -774,6 +834,7 @@ STRINGS = {
         'fr-FR': 'TÉLÉCHARGER TOUTES LES RESSOURCES (.ZIP)',
         'vi':    'TẢI TẤT CẢ TÀI NGUYÊN (.ZIP)',
 'pl':    'POBIERZ WSZYSTKIE ZASOBY (.ZIP)',
+        'it':    'SCARICA TUTTE LE RISORSE (.ZIP)',
 },
     'DOWNLOAD 4K TRAILER': {
         'de': '4K-TRAILER HERUNTERLADEN', 'ja': '4Kトレーラーダウンロード',
@@ -785,6 +846,7 @@ STRINGS = {
         'fr-FR': 'TÉLÉCHARGER LA BANDE-ANNONCE 4K',
         'vi':    'TẢI TRAILER 4K',
 'pl':    'POBIERZ TRAILER 4K',
+        'it':    'SCARICA IL TRAILER 4K',
 },
 
     # ─── Press item meta ───
@@ -798,6 +860,7 @@ STRINGS = {
         'fr-FR': 'Taïwan &middot; Actualités Jeux Vidéo',
         'vi':    'Đài Loan &middot; Tin Tức Game',
 'pl':    'Tajwan &middot; Wiadomości Gamingowe',
+        'it':    'Taiwan &middot; Notizie di Gaming',
 },
     'Japan &middot; Industry Trade': {
         'de': 'Japan &middot; Branchenfachpresse', 'ja': '日本 &middot; 業界誌',
@@ -809,6 +872,7 @@ STRINGS = {
         'fr-FR': 'Japon &middot; Presse Spécialisée',
         'vi':    'Nhật Bản &middot; Báo Ngành',
 'pl':    'Japonia &middot; Prasa Branżowa',
+        'it':    'Giappone &middot; Stampa di Settore',
 },
     'Korea &middot; Indie Coverage': {
         'de': 'Korea &middot; Indie-Berichterstattung', 'ja': '韓国 &middot; インディー報道',
@@ -820,6 +884,7 @@ STRINGS = {
         'fr-FR': 'Corée &middot; Couverture Indé',
         'vi':    'Hàn Quốc &middot; Tin Indie',
 'pl':    'Korea &middot; Indie Coverage',
+        'it':    'Corea &middot; Copertura Indie',
 },
     'Podcast &middot; Episode 310': {
         'de': 'Podcast &middot; Episode 310', 'ja': 'ポッドキャスト &middot; エピソード310',
@@ -831,6 +896,7 @@ STRINGS = {
         'fr-FR': 'Podcast &middot; Épisode 310',
         'vi':    'Podcast &middot; Tập 310',
 'pl':    'Podcast &middot; Odcinek 310',
+        'it':    'Podcast &middot; Episodio 310',
 },
 
     # ─── Team ───
@@ -847,6 +913,7 @@ STRINGS = {
         'fr-FR': 'Développeur Solo / Compositeur — Crunch Moonkiss Studios',
         'vi':    'Nhà Phát Triển / Nhà Soạn Nhạc Độc Lập — Crunch Moonkiss Studios',
 'pl':    'Solowy Twórca / Kompozytor — Crunch Moonkiss Studios',
+        'it':    'Sviluppatore / Compositore Solitario — Crunch Moonkiss Studios',
 },
     'Jared D. is a NYC-based solo indie developer and award-winning film composer.': {
         'de':    'Jared D. ist ein in NYC ansässiger Solo-Indie-Entwickler und preisgekrönter Filmkomponist.',
@@ -861,6 +928,7 @@ STRINGS = {
         'fr-FR': 'Jared D. est un développeur indé solo basé à New York et compositeur de cinéma primé.',
         'vi':    'Jared D. là một nhà phát triển indie độc lập tại NYC và là nhà soạn nhạc phim đoạt giải.',
 'pl':    'Jared D. to solowy indie developer z Nowego Jorku oraz nagradzany kompozytor filmowy.',
+        'it':    'Jared D. è uno sviluppatore indie solitario con sede a NYC e compositore di colonne sonore premiato.',
 },
 
     # ─── Contact ───
@@ -874,6 +942,7 @@ STRINGS = {
         'fr-FR': '<div class="clabel">Demandes Presse</div>',
         'vi':    '<div class="clabel">Yêu Cầu Báo Chí</div>',
 'pl':    '<div class="clabel">Zapytania Prasowe</div>',
+        'it':    '<div class="clabel">Richieste Stampa</div>',
 },
     '<div class="clabel">Steam Page</div>': {
         'de': '<div class="clabel">Steam-Seite</div>', 'ja': '<div class="clabel">Steamページ</div>',
@@ -885,6 +954,7 @@ STRINGS = {
         'fr-FR': '<div class="clabel">Page Steam</div>',
         'vi':    '<div class="clabel">Trang Steam</div>',
 'pl':    '<div class="clabel">Strona Steam</div>',
+        'it':    '<div class="clabel">Pagina Steam</div>',
 },
     '<div class="clabel">Studio</div>': {
         'de': '<div class="clabel">Studio</div>', 'ja': '<div class="clabel">スタジオ</div>',
@@ -896,6 +966,7 @@ STRINGS = {
         'fr-FR': '<div class="clabel">Studio</div>',
         'vi':    '<div class="clabel">Studio</div>',
 'pl':    '<div class="clabel">Studio</div>',
+        'it':    '<div class="clabel">Studio</div>',
 },
     '<div class="clabel">Location</div>': {
         'de': '<div class="clabel">Standort</div>', 'ja': '<div class="clabel">所在地</div>',
@@ -907,6 +978,7 @@ STRINGS = {
         'fr-FR': '<div class="clabel">Localisation</div>',
         'vi':    '<div class="clabel">Vị Trí</div>',
 'pl':    '<div class="clabel">Lokalizacja</div>',
+        'it':    '<div class="clabel">Sede</div>',
 },
     'New York City, USA': {
         'de': 'New York City, USA', 'ja': 'ニューヨーク, アメリカ',
@@ -918,6 +990,7 @@ STRINGS = {
         'fr-FR': 'New York, États-Unis',
         'vi':    'Thành phố New York, Hoa Kỳ',
 'pl':    'Nowy Jork, USA',
+        'it':    'New York City, USA',
 },
     'Remain At Your Desk on Steam': {
         'de': 'Remain At Your Desk auf Steam', 'ja': 'SteamのRemain At Your Desk',
@@ -929,6 +1002,7 @@ STRINGS = {
         'fr-FR': 'Remain At Your Desk sur Steam',
         'vi':    'Remain At Your Desk trên Steam',
 'pl':    'Remain At Your Desk na Steam',
+        'it':    'Remain At Your Desk su Steam',
 },
 
     # ─── Footer ───
@@ -945,6 +1019,7 @@ STRINGS = {
         'fr-FR': '&copy; 2026 Crunch Moonkiss Studios — Tous droits réservés',
         'vi':    '&copy; 2026 Crunch Moonkiss Studios — Mọi quyền được bảo lưu',
 'pl':    '&copy; 2026 Crunch Moonkiss Studios — Wszelkie prawa zastrzeżone',
+        'it':    '&copy; 2026 Crunch Moonkiss Studios — Tutti i diritti riservati',
 },
     '&gt; SESSION TERMINATED_': {
         'de':    '&gt; SITZUNG BEENDET_',
@@ -959,6 +1034,7 @@ STRINGS = {
         'fr-FR': '&gt; SESSION TERMINÉE_',
         'vi':    '&gt; PHIÊN ĐÃ KẾT THÚC_',
 'pl':    '&gt; SESJA ZAKOŃCZONA_',
+        'it':    '&gt; SESSIONE TERMINATA_',
 },
 
     # ─── Screenshot alt text ───
@@ -975,6 +1051,7 @@ STRINGS = {
         'fr-FR': 'alt="Mode Nuit — Choix de Route de Piratage"',
         'vi':    'alt="Chế Độ Đêm — Lựa Chọn Tuyến Hack"',
 'pl':    'alt="Tryb Nocny — Wybór Trasy Hacku"',
+        'it':    'alt="Modalità Notte — Scelta del Percorso di Hacking"',
 },
     'alt="Day Mode — Corporate Tasks"': {
         'de':    'alt="Tagmodus — Firmenaufgaben"',
@@ -989,6 +1066,7 @@ STRINGS = {
         'fr-FR': 'alt="Mode Jour — Tâches d\'Entreprise"',
         'vi':    'alt="Chế Độ Ngày — Nhiệm Vụ Công Ty"',
 'pl':    'alt="Tryb Dzienny — Zadania Korporacyjne"',
+        'it':    'alt="Modalità Giorno — Mansioni Aziendali"',
 },
     'alt="Leverage — Archive the Dirt, or Leak It for Credits"': {
         'de':    'alt="Druckmittel — Den Dreck archivieren oder gegen Credits leaken"',
@@ -1003,6 +1081,7 @@ STRINGS = {
         'fr-FR': 'alt="Levier — Archive le Linge Sale, ou Fuite-le pour des Crédits"',
         'vi':    'alt="Đòn Bẩy — Lưu Trữ Hay Rò Rỉ Lấy Tín Dụng"',
 'pl':    'alt="Dźwignia — Archiwizuj Brudy lub Wycieknij Za Kredyty"',
+        'it':    'alt="Leva — Archivia il Marcio o Diffondilo per Crediti"',
 },
     'alt="Black Market — Permanent Perks Off the Books"': {
         'de':    'alt="Black Market — Permanente Vorteile außerhalb der Bücher"',
@@ -1017,6 +1096,7 @@ STRINGS = {
         'fr-FR': 'alt="Black Market — Avantages Permanents Hors Livres"',
         'vi':    'alt="Black Market — Đặc Quyền Vĩnh Viễn Ngoài Sổ Sách"',
 'pl':    'alt="Czarny Rynek — Stałe Perki Poza Księgowością"',
+        'it':    'alt="Black Market — Vantaggi Permanenti Fuori dai Registri"',
 },
     'alt="Hack In Progress — Breach Detected"': {
         'de':    'alt="Hack in Bearbeitung — Eindringen erkannt"',
@@ -1031,6 +1111,7 @@ STRINGS = {
         'fr-FR': 'alt="Piratage en Cours — Brèche Détectée"',
         'vi':    'alt="Đang Hack — Phát Hiện Xâm Nhập"',
 'pl':    'alt="Hack W Toku — Wykryto Naruszenie"',
+        'it':    'alt="Hack in Corso — Violazione Rilevata"',
 },
     'alt="CONDUIT — I See What You Are"': {
         'de':    'alt="KANAL — Ich sehe, was du bist"',
@@ -1045,6 +1126,7 @@ STRINGS = {
         'fr-FR': 'alt="CONDUIT — Je Vois Ce Que Tu Es"',
         'vi':    'alt="ỐNG DẪN — Tôi Thấy Ngươi Là Gì"',
 'pl':    'alt="KANAŁ — Widzę, Czym Jesteś"',
+        'it':    'alt="CONDUIT — Vedo Cosa Sei"',
 },
     'alt="Promotion — Employee Performance Review"': {
         'de':    'alt="Beförderung — Mitarbeiter-Leistungsbeurteilung"',
@@ -1059,6 +1141,7 @@ STRINGS = {
         'fr-FR': 'alt="Promotion — Évaluation de Performance de l\'Employé"',
         'vi':    'alt="Thăng Chức — Đánh Giá Hiệu Suất Nhân Viên"',
 'pl':    'alt="Awans — Przegląd Wydajności Pracownika"',
+        'it':    'alt="Promozione — Valutazione delle Prestazioni del Dipendente"',
 },
 }
 
