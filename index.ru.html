@@ -444,6 +444,22 @@
     height: 100%;
     border: 0;
   }
+  /* 9:16 vertical trailer — centered, height-constrained (the 16:9 .trailer-frame would squish it) */
+  .vertical-frame {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--line);
+    background: #000;
+    margin-bottom: 32px;
+    padding: 12px 0;
+  }
+  .vertical-frame video {
+    height: 70vh;
+    max-height: 760px;
+    width: auto;
+    max-width: 100%;
+    border: 0;
+  }
   .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -839,6 +855,13 @@
             allowfullscreen></iframe>
   </div>
 
+  <div class="trailer-label">&gt; 9:16 Vertical Trailer (4K)</div>
+  <div class="vertical-frame">
+    <video controls preload="none" poster="images/Vertical.png">
+      <source src="images/RAYD_4K_916.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <div class="screenshots-grid">
     <div class="screenshot-item" onclick="openLightbox(this.querySelector('img').src)">
       <img src="images/screenshot_night.png" alt="Ночной режим — Выбор маршрута взлома">
@@ -873,6 +896,7 @@
   <div class="download-bar">
     <a href="RAYD_PressKit.zip" class="btn btn-outline" download>СКАЧАТЬ ВСЕ МАТЕРИАЛЫ (.ZIP)</a>
     <a href="images/4KDemoTrailer.mov" class="btn btn-ghost" download>СКАЧАТЬ 4K ТРЕЙЛЕР</a>
+    <a href="images/RAYD_4K_916.mp4" class="btn btn-ghost" download>DOWNLOAD 9:16 TRAILER</a>
   </div>
 </section>
 
